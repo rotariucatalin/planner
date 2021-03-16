@@ -20,6 +20,8 @@ public class UserRestController {
     @GetMapping(value = "/admin/user/getAuthorityList/{userId}")
     public List<Permission> getAuthorityList(@PathVariable(value = "userId") int userId) {
 
+        String tesdt = "1231231";
+
         return userServicePersonal.findUserById(userId).getPermissions();
 
     }
