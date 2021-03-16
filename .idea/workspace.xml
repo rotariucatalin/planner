@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3c344b42-c92e-4c11-8e1f-ada057d3ef44" name="Default Changelist" comment="" />
+    <list default="true" id="3c344b42-c92e-4c11-8e1f-ada057d3ef44" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Planner/restcontroller/UserRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Planner/restcontroller/UserRestController.java" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +65,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1615888903034</updated>
-      <workItem from="1615888906595" duration="1794000" />
+      <workItem from="1615888906595" duration="2384000" />
     </task>
     <task id="LOCAL-00001" summary="Message">
       <created>1615892949663</created>
