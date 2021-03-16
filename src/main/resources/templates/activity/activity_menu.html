@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<body>
+
+<div th:fragment="activity_nav">
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #73C2BE;">
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <li sec:authorize="isAuthenticated()" class="nav-item">
+                    <a th:class="${statuscode == 'all'}? 'nav-link text-white active' : 'nav-link text-white'" href="#" th:href="@{~/activity/index}">All</a>
+                </li>
+                <li sec:authorize="isAuthenticated()" class="nav-item">
+                    <a th:class="${statuscode == 'active'}? 'nav-link text-white active' : 'nav-link text-white'" href="#" th:href="@{~/activity/active/page/1}">Active</a>
+                </li>
+                <li sec:authorize="hasAuthority('View_Activity')" class="nav-item">
+                    <a th:class="${statuscode == 'completed'}? 'nav-link text-white active' : 'nav-link text-white'" href="#" th:href="@{~/activity/completed/page/1}">Completed</a>
+                </li>
+                <li sec:authorize="hasAuthority('View_Activity')" class="nav-item">
+                    <a th:class="${statuscode == 'hold'}? 'nav-link text-white active' : 'nav-link text-white'" href="#" th:href="@{~/activity/hold/page/1}">Hold</a>
+                </li>
+                <li sec:authorize="hasAuthority('View_Activity')" class="nav-item">
+                    <a th:class="${statuscode == 'canceled'}? 'nav-link text-white active' : 'nav-link text-white'" href="#" th:href="@{~/activity/canceled/page/1}">Canceled</a>
+                </li>
+                <li sec:authorize="hasAuthority('View_Activity')" class="nav-item">
+                    <a class="nav-link text-white" href="#" id="add_new_activity" th:href="@{~/activity/addActivity}">+Add new</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>
+</body>
+</html>

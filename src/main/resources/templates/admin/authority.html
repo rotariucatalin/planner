@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="fragments.html :: headerfiles"></head>
+<meta th:name="${_csrf.parameterName}" th:content="${_csrf.token}"/>
+    <body>
+        <header th:insert="fragments.html :: nav"></header>
+        <section th:insert="admin/admin_menu.html :: admin_nav"></section>
+        <!-- Page content goes here -->
+
+        <script type="text/javascript">
+            $(document).ready(function(){
+
+                var userId = "[(${user.getId()})]";
+                var jsonObj = "";
+                $.ajax({
+                    url: "http://localhost:8080/admin/user/getAuthorityList/"+userId+"",
+                    data: "",
+                    type: "GET",
+                    success:function(data) {
+                        jsonObj = data;
+                        if(data.length > 0) {
+                            $.each(data, function(index, element) {
+                                $('#'+element.name+'').val(element.id);
+                            });
+                        }
+                    }
+                });
+
+                $('#updatePermissions').click(function(){
+
+                    var token = $("meta[name='_csrf']").attr("content");
+                    var permissionObj = {
+                        permissionsList : []
+                    };
+
+                    $('.permission').each(function () {
+                        var jsonData = {};
+                        var activity = $(this).attr("id");
+                        jsonData["name"] = activity;
+                        jsonData["id"] = $('#'+activity).val();
+                        permissionObj.permissionsList.push(jsonData);
+                    });
+
+
+                    $.ajax({
+                        url: "http://localhost:8080/admin/user/updateAuthority/"+userId+"",
+                        data: JSON.stringify(permissionObj.permissionsList),
+                        contentType : "application/json",
+                        dataType: "json",
+                        headers: {"X-CSRF-TOKEN": token}, //send CSRF token in header
+                        type: "POST",
+                        success:function(data) {
+
+                        }
+                    });
+                });
+
+                $('#selectAll').click(function(){
+
+                    $('.permission').each(function () {
+
+                        $(this).find("option").not(':empty').prop("selected", true);
+                    });
+
+                })
+
+                $('#unselectAll').click(function(){
+
+                    $('.permission').each(function () {
+
+                        $(this).val("").prop("selected", true);
+                    });
+
+                })
+            });
+        </script>
+
+        <div class="container-fluid">
+            <h2 style="margin-top: 25px; text-align: center;">Permission list</h2>
+            <form class="col-lg-6 offset-lg-3 border" style="padding: 15px; margin-top: 30px; margin-bottom: 30px;" autocomplete="off">
+
+                <div class="form-row">
+
+                    <div class="form-group col-md-2">
+                       <b>Activity</b>
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label for="View_Activity">View activity</label>
+                        <select class="form-control permission" id="View_Activity" name="View_Activity">
+                            <option th:value="${''}">No</option>
+                            <option th:value="${View_Activity}">Yes</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group col-md-2">
+                        <label for="Add_Activity">Add activity</label>
+                        <select class="form-control permission" id="Add_Activity" name="Add_Activity">
+                            <option th:value="${''}">No</option>
+                            <option th:value="${Add_Activity}">Yes</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group col-md-2">
+                        <label for="Edit_Activity">Edit activity</label>
+                        <select class="form-control permission" id="Edit_Activity" name="Edit_Activity">
+                            <option th:value="${''}">No</option>
+                            <option th:value="${Edit_Activity}">Yes</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group col-md-2">
+                        <label for="Delete_Activity">Delete activity</label>
+                        <select class="form-control permission" id="Delete_Activity" name="Delete_Activity">
+                            <option th:value="${''}">No</option>
+                            <option th:value="${Delete_Activity}">Yes</option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-2">
+                        <b>Admin</b>
+                    </div>
+
+                    <div class="form-group col-md-2">
+                        <label for="View_Admin">View admin</label>
+                        <select class="form-control permission" id="View_Admin" name="View_Admin">
+                            <option th:value="${''}">No</option>
+                            <option th:value="${View_Admin}">Yes</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group col-md-2">
+                        <label for="Add_Admin">Add admin</label>
+                        <select class="form-control permission" id="Add_Admin" name="Add_Admin">
+                            <option th:value="${''}">No</option>
+                            <option th:value="${Add_Admin}">Yes</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group col-md-2">
+                        <label for="Edit_Admin">Edit admin</label>
+                        <select class="form-control permission" id="Edit_Admin" name="Edit_Admin">
+                            <option th:value="${''}">No</option>
+                            <option th:value="${Edit_Admin}">Yes</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group col-md-2">
+                        <label for="Delete_Admin">Delete admin</label>
+                        <select class="form-control permission" id="Delete_Admin" name="Delete_Admin">
+                            <option th:value="${''}">No</option>
+                            <option th:value="${Delete_Admin}">Yes</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+
+                    <div class="form-group col-md-2">
+                        <b>Company</b>
+                    </div>
+
+                    <div class="form-group col-md-2">
+                        <label for="View_Company">View company</label>
+                        <select class="form-control permission" id="View_Company" name="View_Company">
+                            <option th:value="${''}">No</option>
+                            <option th:value="${View_Company}">Yes</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group col-md-2">
+                        <label for="Add_Company">Add company</label>
+                        <select class="form-control permission" id="Add_Company" name="Add_Company">
+                            <option th:value="${''}">No</option>
+                            <option th:value="${Add_Company}">Yes</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group col-md-2">
+                        <label for="Edit_Company">Edit company</label>
+                        <select class="form-control permission" id="Edit_Company" name="Edit_Company">
+                            <option th:value="${''}">No</option>
+                            <option th:value="${Edit_Company}">Yes</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group col-md-2">
+                        <label for="Delete_Company">Delete company</label>
+                        <select class="form-control permission" id="Delete_Company" name="Delete_Company">
+                            <option th:value="${''}">No</option>
+                            <option th:value="${Delete_Company}">Yes</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+
+                    <div class="form-group col-md-2">
+                        <b>Contacts</b>
+                    </div>
+
+                    <div class="form-group col-md-2">
+                        <label for="View_Contact">View contact</label>
+                        <select class="form-control permission" id="View_Contact" name="View_Contact">
+                            <option th:value="${''}">No</option>
+                            <option th:value="${View_Contact}">Yes</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group col-md-2">
+                        <label for="Add_Contact">Add contact</label>
+                        <select class="form-control permission" id="Add_Contact" name="Add_Contact">
+                            <option th:value="${''}">No</option>
+                            <option th:value="${Add_Contact}">Yes</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group col-md-2">
+                        <label for="Edit_Contact">Edit contact</label>
+                        <select class="form-control permission" id="Edit_Contact" name="Edit_Contact">
+                            <option th:value="${''}">No</option>
+                            <option th:value="${Edit_Contact}">Yes</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group col-md-2">
+                        <label for="Delete_Contact">Delete contact</label>
+                        <select class="form-control permission" id="Delete_Contact" name="Delete_Contact">
+                            <option th:value="${''}">No</option>
+                            <option th:value="${Delete_Contact}">Yes</option>
+                        </select>
+                    </div>
+
+                </div>
+
+
+                <button type="button" class="btn btn-primary" id="updatePermissions">Update</button>
+                <button type="button" class="btn btn-info" id="selectAll">Select all</button>
+                <button type="button" class="btn btn-danger" id="unselectAll">Unselect all</button>
+                <a th:href="@{'/admin/users/'}" class="btn btn-warning float-right text-white">Cancel</a>
+            </form>
+        </div>
+    </body>
+</html>

@@ -3,9 +3,14 @@
 <head th:insert="fragments.html :: headerfiles"></head>
 <body>
 <header th:insert="fragments.html :: nav"></header>
+<section th:insert="admin/admin_menu.html :: admin_nav"></section>
 <!-- Page content goes here -->
 <div class="container">
-    <p>This is Admin\Index. Only people with role_admin can see this.</p>
+    <div class="col-xs-1" align="center">
+        <img src="../icons/admin-settings-male.png"/>
+        <br/>
+        <h2>We are here to help you!</h2>
+    </div>
 </div>
 </body>
 </html>

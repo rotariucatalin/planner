@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<body>
+
+<div th:fragment="profile_nav">
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #73C2BE;">
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <li sec:authorize="isAuthenticated()" class="nav-item">
+                    <a class="nav-link text-white" id="profile"  href="#" th:href="@{~/profile/index}">Profile</a>
+                </li>
+                <li sec:authorize="hasAuthority('View_Activity')" class="nav-item">
+                    <a class="nav-link text-white" href="#" th:href="@{~/activity/index/?contactId={id}(id=${user.getId()}) }">Activities</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>
+</body>
+</html>

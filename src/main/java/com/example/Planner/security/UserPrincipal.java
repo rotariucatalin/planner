@@ -31,9 +31,6 @@ public class UserPrincipal implements UserDetails {
             authorities.add(authority);
         });
 
-        GrantedAuthority authority = new SimpleGrantedAuthority(user.getRole());
-        authorities.add(authority);
-
         return authorities;
     }
 

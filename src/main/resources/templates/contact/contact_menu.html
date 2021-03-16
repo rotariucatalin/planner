@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<body>
+
+    <div th:fragment="contact_nav">
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #73C2BE;">
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav mr-auto">
+                    <li sec:authorize="hasAuthority('View_Contact')" class="nav-item">
+                        <a class="nav-link text-white active" href="#" th:href="@{~/contact/index}">All</a>
+                    </li>
+                    <li sec:authorize="hasAuthority('Add_Contact')" class="nav-item">
+                        <a class="nav-link text-white" href="#" id="add_new_contact" th:href="@{~/contact/addContact}">+Add new</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</body>
+</html>

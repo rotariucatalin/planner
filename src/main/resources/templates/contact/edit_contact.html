@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="fragments.html :: headerfiles"></head>
+    <body>
+        <header th:insert="fragments.html :: nav"></header>
+        <section th:insert="contact/contact_menu.html :: contact_nav"></section>
+        <!-- Page content goes here -->
+
+        <script type="text/javascript">
+            $(document).ready(function(){
+
+            });
+
+        </script>
+
+        <div class="container-fluid">
+            <h2 style="margin-top: 25px; text-align: center;">Edit Contact</h2>
+            <form class="col-lg-6 offset-lg-3 border" style="padding: 15px; margin-top: 30px; margin-bottom: 30px;" th:action="@{/contact/updateContact/{id}(id=${contact.getId()}) }" th:object="${contact}" method="post" autocomplete="off">
+                <div class="form-group">
+                    <label for="name">Contact name</label>
+                    <input type="text" class="form-control" id="name" placeholder="Enter contact name" th:value="${contact.getName()}" th:field="*{name}">
+                </div>
+
+                <button type="submit" class="btn btn-primary">Update</button>
+                <a th:href="@{'/contact/index'}" class="btn btn-warning float-right text-white">Cancel</a>
+            </form>
+        </div>
+    </body>
+</html>

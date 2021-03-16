@@ -1,6 +1,7 @@
 package com.example.Planner.models;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -14,31 +15,48 @@ public class User {
     private String username;
     @Column(name = "user_password")
     private String password;
+    @Column(name = "user_first_name")
+    private String firstName;
+    @Column(name = "user_last_name")
+    private String lastName;
     @Column(name = "user_email")
     private String email;
     @Column(name = "user_active")
     private String active;
-    @Column(name = "user_type")
-    private String role;
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinTable( name = "user_permissions",
                 joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "user_id"),
                 inverseJoinColumns = @JoinColumn(name = "permision_id", referencedColumnName = "permision_id")
               )
-    private Set<Permission> permissions;
+    private List<Permission> permissions;
 
-    public User(String username, String password, String email, String active, String role, Set<Permission> permissions) {
+    public User(String username,
+                String password,
+                String firstName,
+                String lastName,
+                String email,
+                String active,
+                List<Permission> permissions) {
         this.username = username;
         this.password = password;
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.email = email;
         this.active = active;
-        this.role = role;
         this.permissions = permissions;
     }
 
     public User() {
 
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getUsername() {
@@ -57,6 +75,22 @@ public class User {
         this.password = password;
     }
 
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
     public String getEmail() {
         return email;
     }
@@ -73,19 +107,11 @@ public class User {
         this.active = active;
     }
 
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
-    }
-
-    public Set<Permission> getPermissions() {
+    public List<Permission> getPermissions() {
         return permissions;
     }
 
-    public void setPermissions(Set<Permission> permissions) {
+    public void setPermissions(List<Permission> permissions) {
         this.permissions = permissions;
     }
 }

@@ -4,12 +4,26 @@
 
 <!-- Fragment #1 : Header files contains css and js references -->
 <head th:fragment="headerfiles">
-    <title>Introduction to SpringBoot Security</title>
+    <title>DMT Planner</title>
     <meta charset="UTF-8"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker3.standalone.min.css" />
+
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('#date').datepicker({
+                format: "yyyy-mm-dd",
+                autoclose: true
+            });
+        })
+    </script>
 
 </head>
 <body>
@@ -17,21 +31,24 @@
 <!-- Fragment #2 : Navbar contains nav links -->
 <div th:fragment="nav">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Boot Security</a>
+        <a class="navbar-brand" href="#" th:href="@{~/}">DMT Planner</a>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#" th:href="@{~/index}"><i class="fa fa-home"></i>Home</a>
-                </li>
                 <li sec:authorize="isAuthenticated()" class="nav-item">
                     <a class="nav-link" href="#" th:href="@{~/profile/index}">Profile</a>
                 </li>
-                <li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item">
+                <li sec:authorize="hasAuthority('View_Activity')" class="nav-item">
+                    <a class="nav-link" href="#" th:href="@{~/activity/index}">Activities</a>
+                </li>
+                <li sec:authorize="hasAuthority('View_Admin')" class="nav-item">
                     <a class="nav-link" href="#" th:href="@{~/admin/index}">Admin</a>
                 </li>
-                <li sec:authorize="hasAnyRole('ROLE_ADMIN','ROLE_MANAGER')" class="nav-item">
-                    <a class="nav-link" href="#" th:href="@{~/management/index}">Management</a>
+                <li sec:authorize="hasAuthority('View_Company')" class="nav-item">
+                    <a class="nav-link" href="#" th:href="@{~/company/index}">Companies</a>
+                </li>
+                <li sec:authorize="hasAuthority('View_Contact')" class="nav-item">
+                    <a class="nav-link" href="#" th:href="@{~/contact/index}">Contacts</a>
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0" form-method="post" th:action="@{/logout}">

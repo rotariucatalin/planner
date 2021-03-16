@@ -1,28 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AutoImportSettings">
-    <option name="autoReloadType" value="SELECTIVE" />
-  </component>
-  <component name="BranchesTreeState">
-    <expand>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-    </expand>
-    <select />
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="70d91caa-c6ce-46b0-aecb-13a4d7f3cdbc" name="Default Changelist" comment="" />
+    <list default="true" id="3459110b-9517-4e6a-8268-d233332fe2dc" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -34,67 +14,71 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Enum" />
         <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="master" />
-      </map>
-    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="RESET_MODE" value="HARD" />
-  </component>
-  <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="mavenHome" value="C:\Users\user\.m2\wrapper\dists\apache-maven-3.6.3-bin\1iopthnavndlasol9gbrbg6bf2\apache-maven-3.6.3" />
-      </MavenGeneralSettings>
-    </option>
   </component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="1" />
   </component>
-  <component name="ProjectId" id="1kj6cXX6UtkJ8LvyyahT5mWg7Y2" />
-  <component name="ProjectViewState">
-    <option name="autoscrollFromSource" value="true" />
-    <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showLibraryContents" value="true" />
-  </component>
+  <component name="ProjectId" id="1nY8zdwkgZUlB01uLiILJMruPqp" />
   <component name="PropertiesComponent">
     <property name="RequestMappingsPanelOrder0" value="0" />
     <property name="RequestMappingsPanelOrder1" value="1" />
     <property name="RequestMappingsPanelWidth0" value="75" />
     <property name="RequestMappingsPanelWidth1" value="75" />
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Spring\planner\src\main\resources\templates" />
+      <recent name="D:\Spring tutoriale\Spring\planner\src\main\resources\static\icons" />
+      <recent name="D:\Spring tutoriale\Spring\planner\src\main\resources\static" />
+      <recent name="D:\Spring tutoriale\Spring\planner\src\main\resources\icons" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\Spring\planner\src\main\resources\static" />
-      <recent name="D:\Spring\planner\src\main\resources\templates" />
-      <recent name="D:\Spring\planner\src\main\resources" />
-      <recent name="D:\Spring\planner\src\main\java\com\example\Planner\security" />
+      <recent name="D:\Spring tutoriale\Spring\planner\src\main\resources\templates\contact" />
+      <recent name="D:\Spring tutoriale\Spring\planner\src\main\resources\templates\company" />
+      <recent name="D:\Spring tutoriale\Spring\planner\src\main\resources\templates\admin" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration name="PlannerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <module name="planner" />
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.PlannerApplication">
+    <configuration name="PlannerApplicationTests.testCompany" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Planner" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.example.Planner.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="com.example.Planner" />
+      <option name="MAIN_CLASS_NAME" value="com.example.Planner.PlannerApplicationTests" />
+      <option name="METHOD_NAME" value="testCompany" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PlannerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="Planner" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.Planner.PlannerApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -102,147 +86,76 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.PlannerApplication" />
+        <item itemvalue="JUnit.PlannerApplicationTests.testCompany" />
       </list>
     </recent_temporary>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="70d91caa-c6ce-46b0-aecb-13a4d7f3cdbc" name="Default Changelist" comment="" />
-      <changelist id="" name="Added Spring Security with jdbc" comment="" />
-      <created>1606201733208</created>
+      <changelist id="3459110b-9517-4e6a-8268-d233332fe2dc" name="Default Changelist" comment="" />
+      <created>1611555928188</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1606201733208</updated>
-      <workItem from="1606201734283" duration="214000" />
-      <workItem from="1606201967106" duration="8384000" />
-      <workItem from="1606216996971" duration="8170000" />
-      <workItem from="1606285990124" duration="20244000" />
-      <workItem from="1606328990770" duration="1271000" />
+      <updated>1611555928188</updated>
+      <workItem from="1611555932136" duration="1371000" />
+      <workItem from="1611565182012" duration="4864000" />
+      <workItem from="1612690320394" duration="70000" />
+      <workItem from="1613473610335" duration="1292000" />
+      <workItem from="1613479223893" duration="733000" />
+      <workItem from="1613553269027" duration="3046000" />
+      <workItem from="1614064461479" duration="19097000" />
+      <workItem from="1614167366082" duration="2251000" />
+      <workItem from="1614174277528" duration="3454000" />
+      <workItem from="1614237471317" duration="13426000" />
+      <workItem from="1614494560341" duration="9680000" />
+      <workItem from="1614582069386" duration="6198000" />
+      <workItem from="1614589988673" duration="265000" />
+      <workItem from="1614590275131" duration="7499000" />
+      <workItem from="1614666334519" duration="6235000" />
+      <workItem from="1614754933570" duration="5468000" />
+      <workItem from="1614843221147" duration="10409000" />
+      <workItem from="1614876850020" duration="3510000" />
+      <workItem from="1614926094035" duration="12583000" />
+      <workItem from="1615045039620" duration="7717000" />
+      <workItem from="1615109206023" duration="7933000" />
+      <workItem from="1615186429600" duration="15327000" />
+      <workItem from="1615278751082" duration="13482000" />
+      <workItem from="1615358928903" duration="5356000" />
+      <workItem from="1615446779607" duration="5147000" />
+      <workItem from="1615709912223" duration="44000" />
+      <workItem from="1615885477706" duration="344000" />
     </task>
-    <task id="LOCAL-00001" summary="First commit">
-      <created>1606202116761</created>
+    <task id="LOCAL-00001" summary="Adding new features to application like (Companies, Admin zone, Contacts)">
+      <created>1615885765000</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1606202116761</updated>
+      <updated>1615885765000</updated>
     </task>
-    <task id="LOCAL-00002" summary="Added Spring Security with jdbc">
-      <created>1606312171144</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1606312171144</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Added Spring Security with jdbc">
-      <created>1606313989473</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1606313989473</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Merge remote-tracking branch 'origin/master' into master">
-      <created>1606332217473</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1606332217473</updated>
-    </task>
-    <option name="localTasksCounter" value="5" />
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
+    <option name="version" value="1" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="First commit" />
-    <MESSAGE value="Added Spring Security with jdbc" />
-    <MESSAGE value="Merge remote-tracking branch 'origin/master' into master" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge remote-tracking branch 'origin/master' into master" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="765" y="296" width="510" height="587" key="#com.intellij.ide.util.MemberChooser" timestamp="1606310100809">
-      <screen x="0" y="0" width="1920" height="1160" />
-    </state>
-    <state x="765" y="296" width="670" height="587" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1160/1920.0.1920.1160@0.0.1920.1160" timestamp="1606310100809" />
-    <state x="2685" y="296" width="510" height="587" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1160/1920.0.1920.1160@1920.0.1920.1160" timestamp="1606293441908" />
-    <state x="2610" y="327" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1606296137796">
-      <screen x="1920" y="0" width="1920" height="1160" />
-    </state>
-    <state x="2610" y="327" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1160/1920.0.1920.1160@1920.0.1920.1160" timestamp="1606296137796" />
-    <state x="740" y="335" key="FileChooserDialogImpl" timestamp="1606203702900">
-      <screen x="0" y="0" width="1920" height="1160" />
-    </state>
-    <state x="740" y="335" key="FileChooserDialogImpl/0.0.1920.1160/1920.0.1920.1160@0.0.1920.1160" timestamp="1606203702900" />
-    <state width="1877" height="373" key="GridCell.Tab.0.bottom" timestamp="1606316461396">
-      <screen x="0" y="0" width="1920" height="1160" />
-    </state>
-    <state width="1877" height="373" key="GridCell.Tab.0.bottom/0.0.1920.1160/1920.0.1920.1160@0.0.1920.1160" timestamp="1606316461396" />
-    <state width="1877" height="320" key="GridCell.Tab.0.bottom/0.0.1920.1160/1920.0.1920.1160@1920.0.1920.1160" timestamp="1606298298767" />
-    <state width="1877" height="373" key="GridCell.Tab.0.center" timestamp="1606316461396">
-      <screen x="0" y="0" width="1920" height="1160" />
-    </state>
-    <state width="1877" height="373" key="GridCell.Tab.0.center/0.0.1920.1160/1920.0.1920.1160@0.0.1920.1160" timestamp="1606316461396" />
-    <state width="1877" height="320" key="GridCell.Tab.0.center/0.0.1920.1160/1920.0.1920.1160@1920.0.1920.1160" timestamp="1606298298767" />
-    <state width="1877" height="373" key="GridCell.Tab.0.left" timestamp="1606316461396">
-      <screen x="0" y="0" width="1920" height="1160" />
-    </state>
-    <state width="1877" height="373" key="GridCell.Tab.0.left/0.0.1920.1160/1920.0.1920.1160@0.0.1920.1160" timestamp="1606316461396" />
-    <state width="1877" height="320" key="GridCell.Tab.0.left/0.0.1920.1160/1920.0.1920.1160@1920.0.1920.1160" timestamp="1606298298767" />
-    <state width="1877" height="373" key="GridCell.Tab.0.right" timestamp="1606316461396">
-      <screen x="0" y="0" width="1920" height="1160" />
-    </state>
-    <state width="1877" height="373" key="GridCell.Tab.0.right/0.0.1920.1160/1920.0.1920.1160@0.0.1920.1160" timestamp="1606316461396" />
-    <state width="1877" height="320" key="GridCell.Tab.0.right/0.0.1920.1160/1920.0.1920.1160@1920.0.1920.1160" timestamp="1606298298767" />
-    <state width="1877" height="373" key="GridCell.Tab.1.bottom" timestamp="1606316461396">
-      <screen x="0" y="0" width="1920" height="1160" />
-    </state>
-    <state width="1877" height="373" key="GridCell.Tab.1.bottom/0.0.1920.1160/1920.0.1920.1160@0.0.1920.1160" timestamp="1606316461396" />
-    <state width="1877" height="320" key="GridCell.Tab.1.bottom/0.0.1920.1160/1920.0.1920.1160@1920.0.1920.1160" timestamp="1606298298767" />
-    <state width="1877" height="373" key="GridCell.Tab.1.center" timestamp="1606316461396">
-      <screen x="0" y="0" width="1920" height="1160" />
-    </state>
-    <state width="1877" height="373" key="GridCell.Tab.1.center/0.0.1920.1160/1920.0.1920.1160@0.0.1920.1160" timestamp="1606316461396" />
-    <state width="1877" height="320" key="GridCell.Tab.1.center/0.0.1920.1160/1920.0.1920.1160@1920.0.1920.1160" timestamp="1606298298767" />
-    <state width="1877" height="373" key="GridCell.Tab.1.left" timestamp="1606316461396">
-      <screen x="0" y="0" width="1920" height="1160" />
-    </state>
-    <state width="1877" height="373" key="GridCell.Tab.1.left/0.0.1920.1160/1920.0.1920.1160@0.0.1920.1160" timestamp="1606316461396" />
-    <state width="1877" height="320" key="GridCell.Tab.1.left/0.0.1920.1160/1920.0.1920.1160@1920.0.1920.1160" timestamp="1606298298767" />
-    <state width="1877" height="373" key="GridCell.Tab.1.right" timestamp="1606316461396">
-      <screen x="0" y="0" width="1920" height="1160" />
-    </state>
-    <state width="1877" height="373" key="GridCell.Tab.1.right/0.0.1920.1160/1920.0.1920.1160@0.0.1920.1160" timestamp="1606316461396" />
-    <state width="1877" height="320" key="GridCell.Tab.1.right/0.0.1920.1160/1920.0.1920.1160@1920.0.1920.1160" timestamp="1606298298767" />
-    <state x="407" y="174" key="MultipleFileMergeDialog" timestamp="1606329057372">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="407" y="174" key="MultipleFileMergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1606329057372" />
-    <state x="618" y="326" key="VCS.ChangelistChooser" timestamp="1606329077918">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="618" y="326" key="VCS.ChangelistChooser/0.0.1536.824@0.0.1536.824" timestamp="1606329077918" />
-    <state x="442" y="222" key="Vcs.Push.Dialog.v2" timestamp="1606332552773">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="442" y="222" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1606332552773" />
-    <state x="552" y="313" key="Vcs.Push.Dialog.v2/0.0.1920.1160/1920.0.1920.1160@0.0.1920.1160" timestamp="1606202209450" />
-    <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1606332182078">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="586" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1606332182078" />
+    <MESSAGE value="Adding new features to application like (Companies, Admin zone, Contacts)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Adding new features to application like (Companies, Admin zone, Contacts)" />
   </component>
 </project>

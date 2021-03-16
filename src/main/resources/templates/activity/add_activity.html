@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="fragments.html :: headerfiles"></head>
+    <body>
+        <header th:insert="fragments.html :: nav"></header>
+        <section th:insert="activity/activity_menu.html :: activity_nav"></section>
+
+        <style type="text/css">
+            #add_new_activity {
+                color: #9E0031 !important;
+                font-weight: bold;
+                font-style: italic;
+            }
+
+        </style>
+
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $('#company').on("change", function() {
+
+                    $('#contact').find('option').not(':first').remove();
+
+                    $.ajax({
+                        url: "http://localhost:8080/contacts/"+$('#company').val()+"",
+                        data: "",
+                        type: "GET",
+                        success:function(data) {
+
+                            if(data.length > 0) {
+
+                                $.each(data, function(index, element) {
+
+                                    $('#contact').append($('<option>', {
+                                        value: element.id,
+                                        text : element.name
+                                    }));
+
+                                });
+                            }
+                        }
+                    });
+                });
+            });
+
+        </script>
+
+        <!-- Page content goes here -->
+        <div class="container-fluid">
+            <h2 style="margin-top: 25px; text-align: center;">Add Activity</h2>
+            <form class="col-lg-6 offset-lg-3 border" style="padding: 15px; margin-top: 30px; margin-bottom: 30px;" th:action="@{/activity/saveActivity }" method="post" autocomplete="off">
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" class="form-control" id="subject" name="subject" th:required="required" placeholder="Enter subject">
+                </div>
+                <div class="form-group">
+                    <label for="reference">Reference</label>
+                    <input type="text" class="form-control" id="reference" name="reference" th:required="required" placeholder="Enter reference">
+                </div>
+                <div class="form-group">
+                    <label for="type">Activity type</label>
+                    <select class="form-control" id="type" name="type" th:required="required">
+                        <option value="">Select type</option>
+                        <option th:each="actType : ${activity_type}"
+                                th:value="${actType.toString()}"
+                                th:text="${actType.toString().substring(0,1).toUpperCase() + actType.toString().substring(1)}">
+                        </option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="company">Company</label>
+                    <select class="form-control" id="company" name="company" th:required="required">
+                        <option value="">Select company</option>
+                        <option th:each="company : ${companies}"
+                                th:value="${company.getId()}"
+                                th:text="${company.getName()}">
+                        </option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="contact">Contact</label>
+                    <select class="form-control" id="contact" name="contact">
+                        <option value="" selected="selected">Select contact</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="location">Location</label>
+                    <input type="text" class="form-control" id="location" name="location" placeholder="Enter reference" th:required="required">
+                </div>
+                <div class="form-group">
+                    <label for="date">Date</label>
+                    <input type="text" class="form-control" id="date" name="date" placeholder="Enter reference" th:required="required">
+                </div>
+                <div class="form-group">
+                    <label for="status">Status</label>
+                    <select class="form-control" id="status" name="status" th:required="required">
+                        <option value="">Select status</option>
+                        <option th:each="sts : ${status}"
+                                th:value="${sts.toString()}"
+                                th:text="${sts.toString().substring(0,1).toUpperCase() + sts.toString().substring(1)}">
+                        </option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Add</button>
+                <a th:href="@{'/activity/index'}" class="btn btn-warning float-right text-white">Cancel</a>
+            </form>
+        </div>
+    </body>
+</html>

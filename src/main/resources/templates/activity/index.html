@@ -1,0 +1,182 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:insert="fragments.html :: headerfiles"></head>
+<body>
+
+<header th:insert="fragments.html :: nav"></header>
+<section th:insert="activity/activity_menu.html :: activity_nav"></section>
+<style type="text/css">
+
+    .active {
+        color: #9E0031 !important;
+        font-weight: bold;
+        font-style: italic;
+    }
+
+    #alert {
+        margin-top: 20px;
+    }
+
+    .cursor {
+        cursor: pointer;
+        text-decoration: none;
+    }
+
+    .page-link {
+        border-radius: 0px !important;
+
+    }
+</style>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+
+        $('#deleteActivity').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget) // Button that triggered the modal
+            var activityID = button.data('object-id') // Extract info from data-object-name attribute
+
+            $('#deleteActivityForm').attr("action","/activity/deleteActivity/"+activityID+"");
+        })
+
+        $('#searchText').focusout(function(){
+
+            setURLParameters();
+        });
+
+        $('#itemsPerPage').change(function () {
+
+            setURLParameters();
+
+        })
+
+
+        function setURLParameters() {
+
+            var statusCode = "[(${statuscode})]";
+            var companyName = $('#searchText').val();
+            var contactId = "[(${contactId})]";
+            var itemsPerPage = $('#itemsPerPage').val();
+
+            location.href='/activity/'+statusCode+'/page/1/?companyName='+companyName+'&contactId='+contactId+'&itemsPerPage='+itemsPerPage+' ';
+
+        }
+    })
+</script>
+
+    <!-- Page content goes here -->
+    <div class="container-fluid">
+        <div th:if="${message}" th:text="${message}" id="alert" th:class="${'alert ' + alertClass}" role="alert"></div>
+
+        <div style="float: left; margin-bottom: 20px; margin-top: 20px;">
+            <select class="form-control" id="itemsPerPage" name="itemsPerPage">
+                <option value="" th:selected="${itemsPerPage == ''}">1</option>
+                <option value="2" th:selected="${itemsPerPage == '2'}">2</option>
+                <option value="3" th:selected="${itemsPerPage == '3'}">3</option>
+                <option value="4" th:selected="${itemsPerPage == '4'}">4</option>
+            </select>
+        </div>
+        <div style="float: right; margin-bottom: 20px; margin-top: 20px;">
+            <a th:href="@{'/activity/exportExcel?statusCode='+${statuscode}+'&companyName='+${companyName}+'&contactId='+${contactId}}"><img src="/icons/excel_icon.png" height="40" width="40" style="margin-bottom: 5px;"/></a>
+            <input type="text" name="searchText" id="searchText" class="form-control" th:value="${companyName == ''}? '' : ${companyName}" style="width: auto; display: inline;">
+        </div>
+        <table class="table table-bordered" style="margin-top: 30px;">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Subject</th>
+                    <th scope="col">Reference</th>
+                    <th scope="col">Activity</th>
+                    <th scope="col">Company</th>
+                    <th scope="col">Contact</th>
+                    <th scope="col">Location</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Status</th>
+                    <th scope="col" colspan="2">Options</th>
+                </tr>
+            </thead>
+            <tbody th:if = "${activities.size() > 0}">
+                <tr th:each="activity, activityCount : ${activities}">
+                        <td th:text="${activityCount.count}"></td>
+                        <td th:text="${activity.getSubject()}"></td>
+                        <td th:text="${activity.getReference()}"></td>
+                        <td th:text="${activity.getType()}"></td>
+                        <td th:text="${activity.getCompany().getName()}"></td>
+                        <td th:text="${activity.getContact().getName()}"></td>
+                        <td th:text="${activity.getLocation()}"></td>
+                        <td th:text="${activity.getDate()}"></td>
+                        <td th:text="${activity.getStatus()}"></td>
+                        <td align="center"><a sec:authorize="hasAuthority('Edit_Activity')" th:href="@{'/activity/edit/' + ${activity.getId()}}" class="btn btn-success btn-sm text-white" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></a></td>
+                        <td align="center">
+                            <a class="btn btn-danger btn-sm text-white" type="button" data-toggle="modal" th:attr="data-object-id=''+${activity.getId()}+''" data-target="#deleteActivity" data-placement="top" title="Delete"><i class="fa fa-trash"></i></a>
+                        </td>
+                </tr>
+            </tbody>
+            <tbody th:if = "${activities.size() == 0}">
+                <tr>
+                    <td colspan="12" align="center">No results!</td>
+                </tr>
+            </tbody>
+        </table>
+        <div th:if = "${totalPages > 1}">
+
+            <nav aria-label="...">
+                <ul class="pagination justify-content-end">
+
+                    <li class="page-item" th:if="${currentPage > 1}">
+                        <a th:href="@{'/activity/'+${statuscode}+'/page/' + ${currentPage - 1}+'/?companyName='+${companyName}+'&contactId='+${contactId}}" class="cursor">
+                            <span class="page-link">Previous</span>
+                        </a>
+                    </li>
+                    <li class="page-item disabled" th:unless="${currentPage > 1}">
+                        <span class="page-link">Previous</span>
+                    </li>
+
+                    <span th:each="i: ${#numbers.sequence(1, totalPages)}">
+                        <li class="page-item active" th:if="${currentPage == i}">
+                            <a class="cursor" th:href="@{'/activity/'+${statuscode}+'/page/' + ${i}+'/?companyName='+${companyName}+'&contactId='+${contactId}}" style="color: white;">
+                                <span class="page-link">[[${i}]]<span class="sr-only">(current)</span></span>
+                            </a>
+                        </li>
+                        <li class="page-item" th:unless="${currentPage == i}">
+                            <span class="page-link"><a class="cursor" th:href="@{'/activity/'+${statuscode}+'/page/' + ${i}+'/?companyName='+${companyName}+'&contactId='+${contactId}}">[[${i}]]</a></span>
+                        </li>
+                    </span>
+
+                    <li class="page-item" th:if="${currentPage != totalPages}">
+                        <a class="cursor" th:href="@{'/activity/'+${statuscode}+'/page/' + ${currentPage + 1}+'/?companyName='+${companyName}+'&contactId='+${contactId}}">
+                            <span class="page-link">Next</span>
+                        </a>
+                    </li>
+                    <li class="page-item disabled" th:unless="${currentPage != totalPages}">
+                        <span class="page-link">Next</span>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="deleteActivity" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Delete Activity</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form method="get" id="deleteActivityForm">
+                        <div class="modal-body">
+                            Are you sure you want to delete this activity?
+                        </div>
+                        <div class="modal-footer justify-content-between">
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

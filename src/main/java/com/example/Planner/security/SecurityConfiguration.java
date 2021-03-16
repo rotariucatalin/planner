@@ -30,12 +30,18 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()
                 .antMatchers("/index.html").permitAll()
+                .antMatchers("/activity/addActivity/**").hasAuthority("Add_Activity")
+                .antMatchers("/activity/edit/**").hasAuthority("Edit_Activity")
+                .antMatchers("/activity/updateActivity/**").hasAuthority("Edit_Activity")
+                .antMatchers("/activity/deleteActivity/**").hasAuthority("Delete_Activity")
+                .antMatchers("/activity/**").hasAuthority("View_Activity")
+                .antMatchers("/admin/**").hasAuthority("View_Admin")
+                .antMatchers("/admin/user/edit/**").hasAuthority("Edit_Admin")
+                .antMatchers("/admin/user/updateUser/**").hasAuthority("Edit_Admin")
+                .antMatchers("/admin/user/deleteUser/**").hasAuthority("Delete_Admin")
+                .antMatchers("/company/**").hasAuthority("View_Company")
+                .antMatchers("/contact/**").hasAuthority("View_Contact")
                 .antMatchers("/profile/**").authenticated()
-                .antMatchers("/admin/**").hasRole("ADMIN")
-                .antMatchers("/management/**").hasAnyRole("ADMIN", "MANAGER")
-                .antMatchers("/api/public/test1").hasAuthority("ACCESS_TEST1")
-                .antMatchers("/api/public/test2").hasAuthority("ACCESS_TEST2")
-                .antMatchers("/api/public/users").hasRole("ADMIN")
                 .and()
                 .formLogin()
                 .loginProcessingUrl("/signin")
@@ -43,7 +49,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .usernameParameter("txtUsername")
                 .passwordParameter("txtPassword")
                 .and()
-                .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/login");
+                .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/login")
+                .and()
+                .rememberMe().tokenValiditySeconds(2592000).key("mySecret!").rememberMeParameter("checkRememberMe").userDetailsService(userDetailsService);
     }
 
     @Bean

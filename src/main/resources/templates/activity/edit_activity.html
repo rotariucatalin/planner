@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="fragments.html :: headerfiles"></head>
+    <body>
+        <header th:insert="fragments.html :: nav"></header>
+        <section th:insert="activity/activity_menu.html :: activity_nav"></section>
+        <!-- Page content goes here -->
+
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $('#company').on("change", function() {
+
+                    $('#contact').find('option').not(':first').remove();
+
+                    $.ajax({
+                        url: "http://localhost:8080/contacts/"+$('#company').val()+"",
+                        type: "GET",
+                        success:function(data) {
+
+                            if(data.length > 0) {
+
+                                $.each(data, function(index, element) {
+
+                                    $('#contact').append($('<option>', {
+                                        value: element.id,
+                                        text : element.name
+                                    }));
+
+                                });
+                            }
+                        }
+                    });
+
+                });
+            });
+
+        </script>
+
+        <div class="container-fluid">
+            <h2 style="margin-top: 25px; text-align: center;">Edit Activity</h2>
+            <form class="col-lg-6 offset-lg-3 border" style="padding: 15px; margin-top: 30px; margin-bottom: 30px;" th:action="@{/activity/updateActivity/{id}(id=${activity.getId()}) }" th:object="${activity}" method="post" autocomplete="off">
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" class="form-control" id="subject" placeholder="Enter subject" th:value="${activity.getSubject()}" th:field="*{subject}">
+                </div>
+                <div class="form-group">
+                    <label for="reference">Reference</label>
+                    <input type="text" class="form-control" id="reference" placeholder="Enter reference" th:value="${activity.getReference()}" th:field="*{reference}">
+                </div>
+                <div class="form-group">
+                    <label for="activity">Activity type</label>
+                    <select class="form-control" id="activity" th:field="*{type}">
+                        <option th:each="actType : ${activity_type}"
+                                th:value="${actType.toString()}"
+                                th:selected="(${actType.toString()} == ${activity.getType()})"
+                                th:text="${actType.toString().substring(0,1).toUpperCase() + actType.toString().substring(1)}">
+                        </option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="company">Company</label>
+                    <select class="form-control" id="company" th:field="*{company}">
+                        <option value="">Select company</option>
+                        <option th:each="company : ${companies}"
+                                th:value="${company.getId()}"
+                                th:selected="(${company.getId()} == ${activity.getCompany().getId()})"
+                                th:text="${company.getName()}">
+                        </option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="contact">Contact</label>
+                    <select class="form-control" id="contact" th:field="*{contact}">
+                        <option value="">Select contact</option>
+                        <option th:each="contact : ${contacts}"
+                                th:value="${contact.getId()}"
+                                th:selected="(${contact.getId()} == ${activity.getContact().getId()})"
+                                th:text="${contact.getName()}">
+                        </option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="location">Location</label>
+                    <input type="text" class="form-control" id="location" placeholder="Enter location" th:value="${activity.getLocation()}" th:field="*{location}">
+                </div>
+                <div class="form-group">
+                    <label for="date">Date</label>
+                    <input type="text" class="form-control" id="date" placeholder="Enter date" th:value="${activity.getDate()}" th:field="*{date}">
+                </div>
+                <div class="form-group">
+                    <label for="status">Status</label>
+                    <select class="form-control" id="status" th:field="*{status}">
+                        <option th:each="status : ${status}"
+                                th:value="${status.toString()}"
+                                th:selected="(${status.toString()} == ${activity.getStatus()})"
+                                th:text="${status.toString().substring(0,1).toUpperCase() + status.toString().substring(1)}">
+                        </option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Update</button>
+                <a th:href="@{'/activity/index'}" class="btn btn-warning float-right text-white">Cancel</a>
+            </form>
+        </div>
+    </body>
+</html>
