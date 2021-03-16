@@ -29,24 +29,7 @@ public class UserRestController {
                                 @RequestBody String permissionJson) {
 
         User user = userServicePersonal.findUserById(userId);
-        List<Permission> newPermissionList = new ArrayList<>();
 
-        ObjectMapper mapper = new ObjectMapper();
-
-        try {
-
-            Permission[] jsonObj = mapper.readValue(permissionJson, Permission[].class);
-            for (Permission permission : jsonObj) {
-                if(permission.getId() != 0)
-                newPermissionList.add(permission);
-            }
-
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
-        }
-
-        user.setPermissions(newPermissionList);
-
-        userServicePersonal.updateUser(user);
+        userServicePersonal.updateUser(user, permissionJson);
     }
 }

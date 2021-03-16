@@ -27,5 +27,5 @@ public interface UserServicePersonal {
 
     void deleteUser(int userId);
 
-    void updateUser(User user);
+    void updateUser(User user, String permissions);
 }

@@ -13,10 +13,13 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
+import java.util.logging.Logger;
 
 @Controller
 @RequestMapping("/admin")
 public class AdminController {
+
+    static Logger log = Logger.getLogger(AdminController.class.getName());
 
     @Autowired
     private UserServicePersonal userServicePersonal;
