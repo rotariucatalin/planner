@@ -4,6 +4,7 @@ import com.example.Planner.dto.CompanyDTO;
 import com.example.Planner.models.Company;
 import com.example.Planner.repositories.CompanyRepository;
 import com.example.Planner.services.CompanyService;
+import com.example.Planner.utils.CompanyType;
 import org.hibernate.annotations.Cache;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
@@ -33,11 +34,11 @@ public class CompanyServiceImpl implements CompanyService {
     }
 
     @Override
-    public Page<Company> getAllCompaniesPaginate(int pageNo, int pageSize) {
+    public Page<Company> getAllCompaniesPaginate(int pageNo, int pageSize, String type) {
 
         Pageable pageable = PageRequest.of(pageNo - 1, pageSize);
 
-        return companyRepository.findAll(pageable);
+        return companyRepository.findAllByTypeContains(pageable, type);
     }
 
     @Override
@@ -45,6 +46,7 @@ public class CompanyServiceImpl implements CompanyService {
 
         Company company = new Company();
         company.setName(companyDTO.getName());
+        company.setType(CompanyType.AGENT.toString().toLowerCase());
 
         companyRepository.save(company);
     }

@@ -2,10 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c344b42-c92e-4c11-8e1f-ada057d3ef44" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/Planner/utils/CacheService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/Planner/utils/CompanyType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Planner/controllers/ProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Planner/controllers/ProfileController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Planner/services/service_impl/UserServicePersonalImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Planner/services/service_impl/UserServicePersonalImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Planner/utils/AuthoritiesHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Planner/utils/AuthoritiesHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Planner/controllers/CompanyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Planner/controllers/CompanyController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Planner/dto/CompanyDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Planner/dto/CompanyDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Planner/models/Company.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Planner/models/Company.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Planner/repositories/CompanyRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Planner/repositories/CompanyRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Planner/services/CompanyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Planner/services/CompanyService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Planner/services/service_impl/CompanyServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Planner/services/service_impl/CompanyServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/activity/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/activity/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/users.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/users.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/company/company_menu.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/company/company_menu.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/company/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/company/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/contact/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/contact/index.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,6 +29,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>
@@ -73,7 +84,7 @@
       <option name="presentableId" value="Default" />
       <updated>1615888903034</updated>
       <workItem from="1615888906595" duration="10671000" />
-      <workItem from="1615968234737" duration="2174000" />
+      <workItem from="1615968234737" duration="11297000" />
     </task>
     <task id="LOCAL-00001" summary="Message">
       <created>1615892949663</created>
@@ -124,7 +135,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615904743310</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Resolving issue when the permissions are changed the profile page was not working!">
+      <created>1615970556674</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1615970556674</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -147,6 +165,7 @@
     <MESSAGE value="Message" />
     <MESSAGE value="Removing unused file" />
     <MESSAGE value="Reload permissions after update User" />
-    <option name="LAST_COMMIT_MESSAGE" value="Reload permissions after update User" />
+    <MESSAGE value="Resolving issue when the permissions are changed the profile page was not working!" />
+    <option name="LAST_COMMIT_MESSAGE" value="Resolving issue when the permissions are changed the profile page was not working!" />
   </component>
 </project>

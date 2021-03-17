@@ -17,7 +17,7 @@ public interface CompanyService {
     List<Company> getAllCompanies();
 
     @Cacheable(value = "allCompaniesP")
-    Page<Company> getAllCompaniesPaginate(int pageNo, int pageSize);
+    Page<Company> getAllCompaniesPaginate(int pageNo, int pageSize, String type);
 
     Company getCompany(int companyId);
 

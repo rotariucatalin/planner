@@ -22,18 +22,20 @@ public class CompanyController {
 
     @GetMapping("/index")
     public String index(Model model,
-                        @RequestParam(name="itemsPerPage", required = false, defaultValue = "1") String itemsPerPage) {
+                        @RequestParam(name="itemsPerPage", required = false, defaultValue = "1") String itemsPerPage,
+                        @RequestParam(name="type", required = false, defaultValue = "") String type) {
 
-        return findPaginated(1, model, itemsPerPage);
+        return findPaginated(1, model, itemsPerPage,type);
 
     }
 
     @GetMapping("/page/{pageNo}")
     public String findPaginated(@PathVariable(value = "pageNo") int pageNo,
                                 Model model,
-                                @RequestParam(name="itemsPerPage", required = false, defaultValue = "1") String itemsPerPage) {
+                                @RequestParam(name="itemsPerPage", required = false, defaultValue = "1") String itemsPerPage,
+                                @RequestParam(name="type", required = false, defaultValue = "") String type) {
 
-        Page<Company> page = companyService.getAllCompaniesPaginate(pageNo, Integer.valueOf(itemsPerPage));
+        Page<Company> page = companyService.getAllCompaniesPaginate(pageNo, Integer.valueOf(itemsPerPage), type);
 
         List<Company> companyList = page.getContent();
 
@@ -41,6 +43,7 @@ public class CompanyController {
         model.addAttribute("totalPages", page.getTotalPages());
         model.addAttribute("totalItems", page.getTotalElements());
         model.addAttribute("companies", companyList);
+        model.addAttribute("type", type);
         model.addAttribute("itemsPerPage", itemsPerPage);
 
         return "company/index";

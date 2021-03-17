@@ -9,7 +9,16 @@
         <div class="collapse navbar-collapse">
             <ul class="navbar-nav mr-auto">
                 <li sec:authorize="hasAuthority('View_Company')" class="nav-item">
-                    <a class="nav-link text-white active" href="#" th:href="@{~/company/index}">All</a>
+                    <a th:class="${type == ''}? 'nav-link text-white active' : 'nav-link text-white'" href="#" th:href="@{~/company/index}">All</a>
+                </li>
+                <li sec:authorize="hasAuthority('View_Company')" class="nav-item">
+                    <a th:class="${type == 'clients'}? 'nav-link text-white active' : 'nav-link text-white'" href="#" th:href="@{~/company/index?type=clients}">Clients</a>
+                </li>
+                <li sec:authorize="hasAuthority('View_Company')" class="nav-item">
+                    <a th:class="${type == 'agents'}? 'nav-link text-white active' : 'nav-link text-white'" href="#" th:href="@{~/company/index?type=agents}">Agents</a>
+                </li>
+                <li sec:authorize="hasAuthority('View_Company')" class="nav-item">
+                    <a th:class="${type == 'suppliers'}? 'nav-link text-white active' : 'nav-link text-white'" href="#" th:href="@{~/company/index?type=suppliers}">Suppliers</a>
                 </li>
                 <li sec:authorize="hasAuthority('Add_Company')" class="nav-item">
                     <a class="nav-link text-white" href="#" id="add_new_activity" th:href="@{~/company/addCompany}">+Add new</a>

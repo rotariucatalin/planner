@@ -10,5 +10,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface CompanyRepository extends JpaRepository<Company, Integer> {
 
-    Page<Company> findAll(Pageable pageable);
+    Page<Company> findAllByTypeContains(Pageable pageable, String type);
 }

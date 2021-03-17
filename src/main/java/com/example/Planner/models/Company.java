@@ -16,6 +16,8 @@ public class Company {
     private int id;
     @Column(name = "company_name")
     private String name;
+    @Column(name = "company_type")
+    private String type;
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable( name = "contacts_companies",
@@ -31,6 +33,10 @@ public class Company {
         return id;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getName() {
         return name;
     }
@@ -39,12 +45,12 @@ public class Company {
         this.name = name;
     }
 
-    public List<Activity> getActivityList() {
-        return activityList;
+    public String getType() {
+        return type;
     }
 
-    public void setActivityList(List<Activity> activityList) {
-        this.activityList = activityList;
+    public void setType(String type) {
+        this.type = type;
     }
 
     public Set<Contact> getContactSet() {
@@ -53,5 +59,13 @@ public class Company {
 
     public void setContactSet(Set<Contact> contactSet) {
         this.contactSet = contactSet;
+    }
+
+    public List<Activity> getActivityList() {
+        return activityList;
+    }
+
+    public void setActivityList(List<Activity> activityList) {
+        this.activityList = activityList;
     }
 }
