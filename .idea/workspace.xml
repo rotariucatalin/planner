@@ -2,12 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c344b42-c92e-4c11-8e1f-ada057d3ef44" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/Planner/utils/AuthoritiesHelper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Planner/controllers/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Planner/controllers/AdminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Planner/restcontroller/UserRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Planner/restcontroller/UserRestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Planner/services/UserServicePersonal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Planner/services/UserServicePersonal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Planner/controllers/ProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Planner/controllers/ProfileController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Planner/services/service_impl/UserServicePersonalImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Planner/services/service_impl/UserServicePersonalImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Planner/utils/AuthoritiesHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Planner/utils/AuthoritiesHelper.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -74,7 +72,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1615888903034</updated>
-      <workItem from="1615888906595" duration="10035000" />
+      <workItem from="1615888906595" duration="10671000" />
+      <workItem from="1615968234737" duration="2174000" />
     </task>
     <task id="LOCAL-00001" summary="Message">
       <created>1615892949663</created>
@@ -118,7 +117,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615896106489</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Reload permissions after update User">
+      <created>1615904743310</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1615904743310</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -129,7 +135,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
@@ -138,6 +146,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Message" />
     <MESSAGE value="Removing unused file" />
-    <option name="LAST_COMMIT_MESSAGE" value="Removing unused file" />
+    <MESSAGE value="Reload permissions after update User" />
+    <option name="LAST_COMMIT_MESSAGE" value="Reload permissions after update User" />
   </component>
 </project>

@@ -25,10 +25,9 @@ public class ProfileController {
     @GetMapping("index")
     public String index(Model model){
 
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        UserPrincipal currentUser = (UserPrincipal)auth.getPrincipal();
+        String currentUsername = SecurityContextHolder.getContext().getAuthentication().getName();
 
-        User user = userServicePersonal.findUserByUsername(currentUser.getUsername());
+        User user = userServicePersonal.findUserByUsername(currentUsername);
 
         UserDTO userDTO = new UserDTO();
         userDTO.setId(user.getId());

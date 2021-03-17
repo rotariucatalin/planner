@@ -71,7 +71,6 @@ public class UserServicePersonalImpl implements UserServicePersonal {
     @Override
     public void updateUser(User user, String permissions) {
 
-
         List<Permission> newPermissionList = new ArrayList<>();
         ObjectMapper mapper = new ObjectMapper();
 
