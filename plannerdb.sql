@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 03, 2020 at 03:18 PM
+-- Generation Time: Mar 21, 2021 at 09:02 AM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 5.6.33
 
@@ -40,16 +40,6 @@ CREATE TABLE `activities` (
   `activity_location` varchar(250) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `activities`
---
-
-INSERT INTO `activities` (`activity_id`, `activity_subject`, `activity_reference`, `activity_type`, `activity_company`, `activity_contact`, `activity_date`, `activity_status`, `activity_location`) VALUES
-(9, '645646', '466456', 'telecon', '1', '1', '2021-12-29', 'active', '45645'),
-(5, '11111', '1111', 'telecon', '1', '1', '2020-11-28', 'completed', '33'),
-(6, '555', '55', 'telecon', '1', '1', '2020-11-25', 'canceled', '555'),
-(8, '888', '888', 'telecon', '1', '1', '2020-11-25', 'completed', '8');
-
 -- --------------------------------------------------------
 
 --
@@ -58,16 +48,19 @@ INSERT INTO `activities` (`activity_id`, `activity_subject`, `activity_reference
 
 CREATE TABLE `companies` (
   `company_id` int(11) NOT NULL,
-  `company_name` varchar(250) NOT NULL
+  `company_name` varchar(250) NOT NULL,
+  `company_type` varchar(20) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `companies`
 --
 
-INSERT INTO `companies` (`company_id`, `company_name`) VALUES
-(1, 'DMT'),
-(2, 'Company 2');
+INSERT INTO `companies` (`company_id`, `company_name`, `company_type`) VALUES
+(1, 'Company 1', 'suppliers'),
+(2, 'Company 2', 'agents'),
+(6, '4564564564564', 'clients'),
+(7, '444444', 'agent');
 
 -- --------------------------------------------------------
 
@@ -85,9 +78,7 @@ CREATE TABLE `contacts` (
 --
 
 INSERT INTO `contacts` (`contact_id`, `contact_name`) VALUES
-(1, 'Rotariu Catalin'),
-(2, 'Methus Andrei'),
-(3, 'Adina Rusu');
+(1, 'Contact 1');
 
 -- --------------------------------------------------------
 
@@ -106,8 +97,7 @@ CREATE TABLE `contacts_companies` (
 
 INSERT INTO `contacts_companies` (`contact_id`, `company_id`) VALUES
 (1, 1),
-(3, 1),
-(3, 2);
+(2, 2);
 
 -- --------------------------------------------------------
 
@@ -128,7 +118,19 @@ INSERT INTO `permissions` (`permision_id`, `permision_name`) VALUES
 (1, 'View_Activity'),
 (2, 'Edit_Activity'),
 (3, 'Add_Activity'),
-(4, 'Delete_Activity');
+(4, 'Delete_Activity'),
+(5, 'View_Admin'),
+(6, 'Edit_Admin'),
+(8, 'Delete_Admin'),
+(10, 'Add_Admin'),
+(11, 'View_Company'),
+(12, 'Add_Company'),
+(13, 'Edit_Company'),
+(14, 'Delete_Company'),
+(15, 'View_Contact'),
+(16, 'Add_Contact'),
+(17, 'Edit_Contact'),
+(18, 'Delete_Contact');
 
 -- --------------------------------------------------------
 
@@ -141,7 +143,6 @@ CREATE TABLE `user` (
   `user_first_name` varchar(250) NOT NULL,
   `user_last_name` varchar(250) NOT NULL,
   `user_username` varchar(250) NOT NULL,
-  `user_type` varchar(250) NOT NULL,
   `user_email` varchar(250) NOT NULL,
   `user_password` varchar(350) NOT NULL,
   `user_active` varchar(50) NOT NULL,
@@ -153,8 +154,9 @@ CREATE TABLE `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`user_id`, `user_first_name`, `user_last_name`, `user_username`, `user_type`, `user_email`, `user_password`, `user_active`, `user_created_date`, `user_last_update`) VALUES
-(1, 'Rotariu', 'Catalin2', 'catalin', 'ROLE_ADMIN', 'rotaricatalin90@gmail.com', '$2a$10$KTuSLL2Dx2CNMu302RwUveGYtUAFkMUItuCWvn.Ie0ubMS3jHQ66S', '1', '2020-11-24 00:00:00', '0000-00-00 00:00:00');
+INSERT INTO `user` (`user_id`, `user_first_name`, `user_last_name`, `user_username`, `user_email`, `user_password`, `user_active`, `user_created_date`, `user_last_update`) VALUES
+(1, 'Rotariu1', 'Catalin1', 'catalin', 'rotaricatalin90@gmail.com', '$2a$10$KTuSLL2Dx2CNMu302RwUveGYtUAFkMUItuCWvn.Ie0ubMS3jHQ66S', '1', '2020-11-24 00:00:00', '0000-00-00 00:00:00'),
+(18, 'Rotariu1213', 'Catalin1213', 'catalin123', 'rotaricatalin90@gmail.com', '$2a$10$KTuSLL2Dx2CNMu302RwUveGYtUAFkMUItuCWvn.Ie0ubMS3jHQ66S', '1', '2020-11-24 00:00:00', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -175,7 +177,19 @@ INSERT INTO `user_permissions` (`user_id`, `permision_id`) VALUES
 (1, 1),
 (1, 2),
 (1, 3),
-(1, 4);
+(1, 4),
+(1, 5),
+(1, 6),
+(1, 8),
+(1, 10),
+(1, 11),
+(1, 12),
+(1, 13),
+(1, 14),
+(1, 15),
+(1, 16),
+(1, 17),
+(1, 18);
 
 --
 -- Indexes for dumped tables
@@ -231,31 +245,31 @@ ALTER TABLE `user_permissions`
 -- AUTO_INCREMENT for table `activities`
 --
 ALTER TABLE `activities`
-  MODIFY `activity_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `activity_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `companies`
 --
 ALTER TABLE `companies`
-  MODIFY `company_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `company_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `contacts`
 --
 ALTER TABLE `contacts`
-  MODIFY `contact_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `contact_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `permissions`
 --
 ALTER TABLE `permissions`
-  MODIFY `permision_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `permision_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
