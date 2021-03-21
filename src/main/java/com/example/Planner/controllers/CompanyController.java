@@ -4,6 +4,7 @@ import com.example.Planner.dto.CompanyDTO;
 import com.example.Planner.exception.RequestException;
 import com.example.Planner.models.Company;
 import com.example.Planner.services.CompanyService;
+import com.example.Planner.utils.CompanyType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Controller;
@@ -11,7 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import java.util.List;
+import java.util.*;
 
 @Controller
 @RequestMapping("/company")
@@ -50,7 +51,11 @@ public class CompanyController {
     }
 
     @GetMapping(value = "/addCompany")
-    public String addCompany() {
+    public String addCompany(Model model) {
+
+        Set<CompanyType> companyTypes = EnumSet.allOf(CompanyType.class);
+
+        model.addAttribute("type", companyTypes);
 
         return "company/add_company";
     }

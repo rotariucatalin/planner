@@ -18,6 +18,10 @@ public class Company {
     private String name;
     @Column(name = "company_type")
     private String type;
+    @Column(name = "company_email")
+    private String email;
+    @Column(name = "company_phone")
+
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable( name = "contacts_companies",

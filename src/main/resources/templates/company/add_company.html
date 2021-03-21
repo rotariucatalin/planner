@@ -29,6 +29,20 @@
                     <label for="name">Company name</label>
                     <input type="text" class="form-control" id="name" name="name" th:required="required" placeholder="Enter company name">
                 </div>
+                <div class="form-group">
+                    <label for="type">Company type</label>
+                    <select class="form-control" id="type" name="type" th:required="required">
+                        <option value="">Select company type</option>
+                        <option th:each="companyType : ${type}"
+                                th:value="${companyType.name().toLowerCase()}"
+                                th:text="${companyType.name()}">
+                        </option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="email">Company email</label>
+                    <input type="text" class="form-control" id="email" name="email" th:required="required" placeholder="Enter company email">
+                </div>
                 <button type="submit" class="btn btn-primary">Add</button>
                 <a th:href="@{'/company/index'}" class="btn btn-warning float-right text-white">Cancel</a>
             </form>
