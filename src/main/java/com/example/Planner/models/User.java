@@ -22,7 +22,7 @@ public class User {
     @Column(name = "user_email")
     private String email;
     @Column(name = "user_active")
-    private String active;
+    private boolean active;
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     @JoinTable( name = "user_permissions",
@@ -36,7 +36,7 @@ public class User {
                 String firstName,
                 String lastName,
                 String email,
-                String active,
+                Boolean active,
                 List<Permission> permissions) {
         this.username = username;
         this.password = password;
@@ -99,11 +99,11 @@ public class User {
         this.email = email;
     }
 
-    public String getActive() {
+    public boolean isActive() {
         return active;
     }
 
-    public void setActive(String active) {
+    public void setActive(boolean active) {
         this.active = active;
     }
 

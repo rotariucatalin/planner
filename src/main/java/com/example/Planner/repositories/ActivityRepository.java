@@ -18,5 +18,8 @@ public interface ActivityRepository extends JpaRepository<Activity, Integer> {
     Page<Activity> findByStatusStartingWithAndCompany_NameStartingWithAndContact_Id(Pageable pageable, String status, String companyName, int contactId);
 
     List<Activity> findByStatusStartingWithAndCompany_NameStartingWithAndContact_Id(String status, String companyName, int contactId);
+
     List<Activity> findByStatusStartingWithAndCompany_NameStartingWith(String status, String companyName);
+
+    List<Activity> findActivityByCompany_Id(int companyId);
 }

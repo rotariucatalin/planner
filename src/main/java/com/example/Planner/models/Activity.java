@@ -1,7 +1,9 @@
 package com.example.Planner.models;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import javax.persistence.*;
 import javax.swing.text.DateFormatter;
@@ -22,19 +24,22 @@ public class Activity {
     private String reference;
     @Column(name = "activity_type")
     private String type;
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "activity_company", nullable = false)
-    private Company company;
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "activity_contact", nullable = false)
-    @JsonIgnore
-    private Contact contact;
     @Column(name = "activity_date")
     private String date;
     @Column(name = "activity_status")
     private String status;
     @Column(name = "activity_location")
     private String location;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "activity_company")
+    @JsonIgnore
+    private Company company;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "activity_contact")
+    @JsonIgnore
+    private Contact contact;
 
     public Activity(String subject, String reference, String type, Company company, Contact contact, String date, String status, String location) {
         this.subject = subject;

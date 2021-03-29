@@ -8,7 +8,30 @@
 
         <script type="text/javascript">
             $(document).ready(function(){
+                $('#salesCompany').on("change", function() {
 
+                    $('#salesPerson').find('option').not(':first').remove();
+
+                    $.ajax({
+                        url: "http://localhost:8080/contacts/contactsByCompanyId/"+$('#salesCompany').val()+"",
+                        data: "",
+                        type: "GET",
+                        success:function(data) {
+
+                            if(data.length > 0) {
+
+                                $.each(data, function(index, element) {
+
+                                    $('#salesPerson').append($('<option>', {
+                                        value: element.id,
+                                        text : element.name
+                                    }));
+
+                                });
+                            }
+                        }
+                    });
+                });
             });
 
         </script>
@@ -19,6 +42,83 @@
                 <div class="form-group">
                     <label for="name">Company name</label>
                     <input type="text" class="form-control" id="name" placeholder="Enter company name" th:value="${company.getName()}" th:field="*{name}">
+                </div>
+                <div class="form-group">
+                    <label for="type">Company type</label>
+                    <select class="form-control" id="type" name="type" th:field="*{type}" th:required="required">
+                        <option value="">Select company type</option>
+                        <option th:each="companyType : ${type}"
+                                th:value="${companyType.name().toLowerCase()}"
+                                th:selected="(${companyType.name().toLowerCase()} == ${company.getType().toLowerCase()})"
+                                th:text="${companyType.name()}">
+                        </option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="email">Company email</label>
+                    <input type="text" class="form-control" id="email" name="email" th:required="required" placeholder="Company email" th:value="${company.getEmail()}" th:field="*{email}">
+                </div>
+                <div class="form-group">
+                    <label for="phoneNumber">Company phone</label>
+                    <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" th:required="required" placeholder="Company phone number" th:value="${company.getPhoneNumber()}" th:field="*{phoneNumber}">
+                </div>
+                <div class="form-group">
+                    <label for="postAddress">Company post address</label>
+                    <input type="text" class="form-control" id="postAddress" name="postAddress" th:required="required" placeholder="Company post address" th:value="${company.getPostAddress()}" th:field="*{postAddress}">
+                </div>
+                <div class="form-group">
+                    <label for="city">Company city</label>
+                    <input type="text" class="form-control" id="city" name="city" th:required="required" placeholder="Company city" th:value="${company.getCity()}" th:field="*{city}">
+                </div>
+                <div class="form-group">
+                    <label for="website">Company website</label>
+                    <input type="text" class="form-control" id="website" name="website" th:required="required" placeholder="Company website" th:value="${company.getWebsite()}" th:field="*{website}">
+                </div>
+                <div class="form-group">
+                    <label for="companyDescription">Company description</label>
+                    <textarea class="form-control" id="companyDescription" name="companyDescription" th:required="required" placeholder="Company description" th:value="${company.getCompanyDescription()}" th:field="*{companyDescription}"></textarea>
+                </div>
+                <div class="form-group" th:if="${company.getSalesCompany() != null }">
+                    <label for="salesCompany">Sales company</label>
+                    <select class="form-control" id="salesCompany" name="salesCompany" th:required="required" th:field="*{salesCompany}">
+                        <option value="">Select sales company</option>
+                        <option th:each="comp : ${companies}"
+                                th:value="${comp.getId()}"
+                                th:selected="(${comp.getId()} == ${company.getSalesCompany().getId()})"
+                                th:text="${comp.getName()}">
+                        </option>
+                    </select>
+                </div>
+                <div class="form-group" th:if="${company.getSalesCompany() == null }">
+                    <label for="salesCompany">Sales company</label>
+                    <select class="form-control" id="salesCompany" name="salesCompany" th:required="required" th:field="*{salesCompany}">
+                        <option value="">Select sales company</option>
+                        <option th:each="comp : ${companies}"
+                                th:value="${comp.getId()}"
+                                th:text="${comp.getName()}">
+                        </option>
+                    </select>
+                </div>
+                <div class="form-group" th:if="${company.getSalesPerson() != null }">
+                    <label for="salesPerson">Sales person</label>
+                    <select class="form-control" id="salesPerson" name="salesPerson" th:required="required" th:field="*{salesPerson}">
+                        <option value="">Select sales person</option>
+                        <option th:each="contact : ${contacts}"
+                                th:value="${contact.getId()}"
+                                th:selected="(${contact.getId()} == ${company.getSalesPerson().getId()})"
+                                th:text="${contact.getName()}">
+                        </option>
+                    </select>
+                </div>
+                <div class="form-group" th:if="${company.getSalesPerson() == null }">
+                    <label for="salesPerson">Sales person</label>
+                    <select class="form-control" id="salesPerson" name="salesPerson" th:field="*{salesPerson}">
+                        <option value="">Select sales person</option>
+                        <option th:each="contact : ${contacts}"
+                                th:value="${contact.getId()}"
+                                th:text="${contact.getName()}">
+                        </option>
+                    </select>
                 </div>
 
                 <button type="submit" class="btn btn-primary">Update</button>

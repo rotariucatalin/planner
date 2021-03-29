@@ -82,22 +82,33 @@
                 <tr>
                     <th scope="col" style="border-bottom: 0px;">#</th>
                     <th scope="col" style="border-bottom: 0px;">Company name</th>
-                    <th scope="col" colspan="2" style="border-bottom: 0px;">Options</th>
+                    <th scope="col" style="border-bottom: 0px;">Company sales</th>
+                    <th scope="col" style="border-bottom: 0px;">Sales person</th>
+                    <th scope="col" style="border-bottom: 0px;">City</th>
+                    <th scope="col" style="border-bottom: 0px;">Phone</th>
+                    <th scope="col" style="border-bottom: 0px;">Email</th>
+                    <th scope="col" colspan="3" style="border-bottom: 0px;">Options</th>
                 </tr>
             </thead>
             <tbody th:if = "${companies.size() > 0}">
                 <tr th:each="company, companyCount : ${companies}">
                         <td th:text="${companyCount.count}"></td>
                         <td th:text="${company.getName()}"></td>
+                        <td th:text="${company.getSalesCompany() != null} ? ${company.getSalesCompany().getName()} : ''"></td>
+                        <td th:text="${company.getSalesPerson() != null} ? ${company.getSalesPerson().getName()} : ''"></td>
+                        <td th:text="${company.getCity()}"></td>
+                        <td th:text="${company.getPhoneNumber()}"></td>
+                        <td th:text="${company.getEmail()}"></td>
                         <td align="center" style="width: 100px;"><a sec:authorize="hasAuthority('Edit_Company')" th:href="@{'/company/editCompany/' + ${company.getId()}}" class="btn btn-success btn-sm text-white" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></a></td>
                         <td align="center" style="width: 100px;">
                             <a sec:authorize="hasAuthority('Delete_Company')" class="btn btn-danger btn-sm text-white" type="button" data-toggle="modal" th:attr="data-object-id=''+${company.getId()}+''" data-target="#deleteCompany" data-placement="top" title="Delete"><i class="fa fa-trash"></i></a>
                         </td>
+                    <td align="center" style="width: 100px;"><a sec:authorize="hasAuthority('Edit_Company')" th:href="@{'/company/company_info/' + ${company.getId()}}" class="btn btn-info btn-sm text-white" type="button" data-toggle="tooltip" data-placement="top" title="View"><i class="fa fa-info"></i></a></td>
                 </tr>
             </tbody>
             <tbody th:if = "${companies.size() == 0}">
                 <tr>
-                    <td colspan="4" align="center">No results!</td>
+                    <td colspan="10" align="center">No results!</td>
                 </tr>
             </tbody>
         </table>

@@ -8,13 +8,15 @@ public class UserDTO {
     private String email;
     private String firstName;
     private String lastName;
+    private Boolean active;
 
-    public UserDTO(String username, String password, String email, String firstName, String lastName) {
+    public UserDTO(String username, String password, String email, String firstName, String lastName, Boolean active) {
         this.username = username;
         this.password = password;
         this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.active = active;
     }
 
     public UserDTO() {
@@ -67,5 +69,13 @@ public class UserDTO {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public Boolean getActive() {
+        return active;
+    }
+
+    public void setActive(Boolean active) {
+        this.active = active;
     }
 }

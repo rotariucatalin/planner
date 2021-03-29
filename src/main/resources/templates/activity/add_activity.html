@@ -21,7 +21,7 @@
                     $('#contact').find('option').not(':first').remove();
 
                     $.ajax({
-                        url: "http://localhost:8080/contacts/"+$('#company').val()+"",
+                        url: "http://localhost:8080/contacts/contactsByCompanyId/"+$('#company').val()+"",
                         data: "",
                         type: "GET",
                         success:function(data) {
@@ -80,6 +80,7 @@
                     <label for="contact">Contact</label>
                     <select class="form-control" id="contact" name="contact">
                         <option value="" selected="selected">Select contact</option>
+
                     </select>
                 </div>
                 <div class="form-group">

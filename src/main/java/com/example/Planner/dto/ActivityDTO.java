@@ -2,24 +2,34 @@ package com.example.Planner.dto;
 
 import com.example.Planner.models.Company;
 import com.example.Planner.models.Contact;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
-public class ActivityDTO {
+import java.io.Serializable;
+
+public class ActivityDTO implements Serializable {
 
     private int id;
     private String subject;
     private String reference;
     private String type;
     private Company company;
+    private ContactDTO contactDTO;
+    @JsonIgnore
     private Contact contact;
     private String date;
     private String status;
     private String location;
 
-    public ActivityDTO(String subject, String reference, String type, Company company, Contact contact, String date, String status, String location) {
+    public ActivityDTO() {
+    }
+
+    public ActivityDTO(int id, String subject, String reference, String type, Company company, ContactDTO contactDTO, Contact contact, String date, String status, String location) {
+        this.id = id;
         this.subject = subject;
         this.reference = reference;
         this.type = type;
         this.company = company;
+        this.contactDTO = contactDTO;
         this.contact = contact;
         this.date = date;
         this.status = status;
@@ -64,6 +74,14 @@ public class ActivityDTO {
 
     public void setCompany(Company company) {
         this.company = company;
+    }
+
+    public ContactDTO getContactDTO() {
+        return contactDTO;
+    }
+
+    public void setContactDTO(ContactDTO contactDTO) {
+        this.contactDTO = contactDTO;
     }
 
     public Contact getContact() {

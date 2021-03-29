@@ -13,7 +13,7 @@
                     $('#contact').find('option').not(':first').remove();
 
                     $.ajax({
-                        url: "http://localhost:8080/contacts/"+$('#company').val()+"",
+                        url: "http://localhost:8080/contacts/contactsByCompanyId/"+$('#company').val()+"",
                         type: "GET",
                         success:function(data) {
 

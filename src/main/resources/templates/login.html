@@ -13,8 +13,8 @@
                 <form name="f" th:action="@{/signin}" method="post" autocomplete="off">
                     <fieldset>
                         <!-- Thymeleaf + Spring Security error display -->
-                        <div th:if="${param.error}" class="alert alert-danger">
-                            Invalid username and password.
+                        <div th:if="${param.error}" th:text="${param.message}" class="alert alert-danger">
+
                         </div>
 
                         <div th:if="${param.logout}" class="alert alert-success">

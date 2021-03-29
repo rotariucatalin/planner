@@ -47,6 +47,14 @@ public class CompanyServiceImpl implements CompanyService {
         Company company = new Company();
         company.setName(companyDTO.getName());
         company.setType(CompanyType.AGENT.toString().toLowerCase());
+        company.setEmail(companyDTO.getEmail());
+        company.setPhoneNumber(companyDTO.getPhoneNumber());
+        company.setPostAddress(companyDTO.getPostAddress());
+        company.setCity(companyDTO.getCity());
+        company.setWebsite(companyDTO.getWebsite());
+        company.setCompanyDescription(companyDTO.getCompanyDescription());
+        company.setSalesCompany(companyDTO.getSalesCompany());
+        company.setSalesPerson(companyDTO.getSalesPerson());
 
         companyRepository.save(company);
     }
@@ -56,7 +64,17 @@ public class CompanyServiceImpl implements CompanyService {
     public Company updateCompany(CompanyDTO companyDTO, int companyId) {
 
         Company company = companyRepository.findById(companyId).get();
+
         company.setName(companyDTO.getName());
+        company.setType(companyDTO.getType());
+        company.setEmail(companyDTO.getEmail());
+        company.setPhoneNumber(companyDTO.getPhoneNumber());
+        company.setPostAddress(companyDTO.getPostAddress());
+        company.setCity(companyDTO.getCity());
+        company.setWebsite(companyDTO.getWebsite());
+        company.setCompanyDescription(companyDTO.getCompanyDescription());
+        company.setSalesCompany(companyDTO.getSalesCompany());
+        company.setSalesPerson(companyDTO.getSalesPerson());
 
         return company;
     }

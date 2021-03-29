@@ -76,11 +76,9 @@ public class ActivityController {
     public String addActivity(Model model) {
 
         List<Company> companies = companyService.getAllCompanies();
-        List<Contact> contacts = contactService.findAllContactsByCompanyID(1);
 
         model.addAttribute("activity_type", activity_type);
         model.addAttribute("companies", companies);
-        model.addAttribute("contacts", contacts);
         model.addAttribute("status", status);
 
         return "activity/add_activity";

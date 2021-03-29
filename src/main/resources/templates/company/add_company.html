@@ -16,7 +16,30 @@
 
         <script type="text/javascript">
             $(document).ready(function(){
+                $('#salesCompany').on("change", function() {
 
+                    $('#salesPerson').find('option').not(':first').remove();
+
+                    $.ajax({
+                        url: "http://localhost:8080/contacts/contactsByCompanyId/"+$('#salesCompany').val()+"",
+                        data: "",
+                        type: "GET",
+                        success:function(data) {
+
+                            if(data.length > 0) {
+
+                                $.each(data, function(index, element) {
+
+                                    $('#salesPerson').append($('<option>', {
+                                        value: element.id,
+                                        text : element.name
+                                    }));
+
+                                });
+                            }
+                        }
+                    });
+                });
             });
 
         </script>
@@ -27,7 +50,7 @@
             <form class="col-lg-6 offset-lg-3 border" style="padding: 15px; margin-top: 30px; margin-bottom: 30px;" th:action="@{/company/saveCompany }" method="post" autocomplete="off">
                 <div class="form-group">
                     <label for="name">Company name</label>
-                    <input type="text" class="form-control" id="name" name="name" th:required="required" placeholder="Enter company name">
+                    <input type="text" class="form-control" id="name" name="name" th:required="required" placeholder="Company name">
                 </div>
                 <div class="form-group">
                     <label for="type">Company type</label>
@@ -41,7 +64,43 @@
                 </div>
                 <div class="form-group">
                     <label for="email">Company email</label>
-                    <input type="text" class="form-control" id="email" name="email" th:required="required" placeholder="Enter company email">
+                    <input type="text" class="form-control" id="email" name="email" th:required="required" placeholder="Company email">
+                </div>
+                <div class="form-group">
+                    <label for="phoneNumber">Company phone</label>
+                    <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" th:required="required" placeholder="Company phone number">
+                </div>
+                <div class="form-group">
+                    <label for="postAddress">Company post address</label>
+                    <input type="text" class="form-control" id="postAddress" name="postAddress" th:required="required" placeholder="Company post address">
+                </div>
+                <div class="form-group">
+                    <label for="city">Company city</label>
+                    <input type="text" class="form-control" id="city" name="city" th:required="required" placeholder="Company city">
+                </div>
+                <div class="form-group">
+                    <label for="website">Company website</label>
+                    <input type="text" class="form-control" id="website" name="website" th:required="required" placeholder="Company website">
+                </div>
+                <div class="form-group">
+                    <label for="companyDescription">Company description</label>
+                    <textarea class="form-control" id="companyDescription" name="companyDescription" th:required="required" placeholder="Company description"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="salesCompany">Sales company</label>
+                    <select class="form-control" id="salesCompany" name="salesCompany" th:required="required">
+                        <option value="">Select sales company</option>
+                        <option th:each="company : ${companies}"
+                                th:value="${company.getId()}"
+                                th:text="${company.getName()}">
+                        </option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="salesPerson">Sales person</label>
+                    <select class="form-control" id="salesPerson" name="salesPerson" th:required="required">
+                        <option value="">Select sales person</option>
+                    </select>
                 </div>
                 <button type="submit" class="btn btn-primary">Add</button>
                 <a th:href="@{'/company/index'}" class="btn btn-warning float-right text-white">Cancel</a>

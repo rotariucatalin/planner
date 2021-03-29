@@ -18,9 +18,17 @@ public class UserPrincipalDetailsService implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
         User user = userRepository.findByUsername(username);
-        UserPrincipal userPrincipal = new UserPrincipal(user);
 
-        return userPrincipal;
+        if(user.isActive()) {
+
+            UserPrincipal userPrincipal = new UserPrincipal(user);
+            return userPrincipal;
+
+        } else {
+
+            throw new UsernameNotFoundException("Username is not active!");
+
+        }
     }
 
 }

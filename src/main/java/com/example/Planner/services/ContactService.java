@@ -12,7 +12,6 @@ import java.util.List;
 
 public interface ContactService {
 
-    @Cacheable(value = "contact", key = "#p0")
     List<Contact> findAllContactsByCompanyID(int companyId);
 
     @Cacheable(value = "allContacts")
@@ -29,4 +28,10 @@ public interface ContactService {
             @CacheEvict(value = "allContacts", allEntries = true)
     })
     void deleteContact(int contactId);
+
+    void updateCompanySalesPerson(int contactId);
+
+    void saveContact(ContactDTO contactDTO);
+
+    List<Contact> excelExport();
 }

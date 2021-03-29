@@ -44,4 +44,6 @@ public interface ActivityService {
    Page<Activity> findByStatusStartingWithAndCompany_Name(int pageNo, int pageSize, String status, String companyName, String contactId);
 
    List<Activity> excelExport(String status, String companyName, String contactId);
+
+   List<Activity> findAllByCompanyId(int companyId);
 }

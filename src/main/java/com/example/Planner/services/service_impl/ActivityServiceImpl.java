@@ -2,6 +2,7 @@ package com.example.Planner.services.service_impl;
 
 import com.example.Planner.dto.ActivityDTO;
 import com.example.Planner.models.Activity;
+import com.example.Planner.models.Contact;
 import com.example.Planner.repositories.ActivityRepository;
 import com.example.Planner.services.ActivityService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -109,5 +110,10 @@ public class ActivityServiceImpl implements ActivityService {
         } else {
             return activityRepository.findByStatusStartingWithAndCompany_NameStartingWith(status, companyName);
         }
+    }
+
+    @Override
+    public List<Activity> findAllByCompanyId(int companyId) {
+        return activityRepository.findActivityByCompany_Id(companyId);
     }
 }

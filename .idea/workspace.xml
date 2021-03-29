@@ -2,10 +2,53 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3c344b42-c92e-4c11-8e1f-ada057d3ef44" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/Planner/excel/ContactExcel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/Planner/restcontroller/ActivityRestController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/Planner/security/AuthenticationFailure.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/company/company_info.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/contact/add_contact.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_11_3.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Planner/controllers/ActivityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Planner/controllers/ActivityController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Planner/controllers/CompanyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Planner/controllers/CompanyController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Planner/controllers/ContactController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Planner/controllers/ContactController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Planner/controllers/ManagementController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Planner/controllers/PublicRestController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Planner/dto/ActivityDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Planner/dto/ActivityDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Planner/dto/CompanyDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Planner/dto/CompanyDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Planner/dto/ContactDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Planner/dto/ContactDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Planner/dto/UserDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Planner/dto/UserDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Planner/models/Activity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Planner/models/Activity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Planner/models/Company.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Planner/models/Company.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Planner/models/Contact.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Planner/models/Contact.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Planner/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Planner/models/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Planner/repositories/ActivityRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Planner/repositories/ActivityRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Planner/repositories/CompanyRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Planner/repositories/CompanyRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Planner/repositories/ContactRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Planner/repositories/ContactRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Planner/restcontroller/ContactRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Planner/restcontroller/ContactRestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Planner/security/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Planner/security/SecurityConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Planner/security/UserPrincipal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Planner/security/UserPrincipal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Planner/security/UserPrincipalDetailsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Planner/security/UserPrincipalDetailsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Planner/services/ActivityService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Planner/services/ActivityService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Planner/services/CompanyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Planner/services/CompanyService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Planner/services/ContactService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Planner/services/ContactService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Planner/services/service_impl/ActivityServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Planner/services/service_impl/ActivityServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Planner/services/service_impl/CompanyServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Planner/services/service_impl/CompanyServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Planner/services/service_impl/ContactServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Planner/services/service_impl/ContactServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Planner/services/service_impl/UserServicePersonalImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Planner/services/service_impl/UserServicePersonalImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/activity/add_activity.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/activity/add_activity.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/activity/edit_activity.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/activity/edit_activity.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/edit_user.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/edit_user.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/company/add_company.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/company/add_company.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/company/edit_company.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/company/edit_company.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/company/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/company/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/contact/edit_contact.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/contact/edit_contact.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/contact/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/contact/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/management/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/profile/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/profile/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/profile/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/profile/index.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -20,6 +63,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
+        <option value="HTML File" />
         <option value="Class" />
       </list>
     </option>
@@ -33,14 +77,26 @@
   </component>
   <component name="ProjectId" id="1ppnSzYPzEAuniXo3Jt3Z1OHeST" />
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RequestMappingsPanelOrder0" value="0" />
     <property name="RequestMappingsPanelOrder1" value="1" />
     <property name="RequestMappingsPanelWidth0" value="75" />
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="ToolWindowRun.ShowToolbar" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/templates/contact" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="settings.github" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.example.Planner.excel" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Spring tutoriale\Spring\planner\src\main\resources\templates\contact" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -75,6 +131,13 @@
       <updated>1615888903034</updated>
       <workItem from="1615888906595" duration="10671000" />
       <workItem from="1615968234737" duration="15800000" />
+      <workItem from="1616313662482" duration="9172000" />
+      <workItem from="1616403855166" duration="13155000" />
+      <workItem from="1616483667294" duration="17097000" />
+      <workItem from="1616523839679" duration="3948000" />
+      <workItem from="1616573836555" duration="14941000" />
+      <workItem from="1616743771915" duration="14323000" />
+      <workItem from="1616998229240" duration="6156000" />
     </task>
     <task id="LOCAL-00001" summary="Message">
       <created>1615892949663</created>
@@ -139,7 +202,21 @@
       <option name="project" value="LOCAL" />
       <updated>1615987187399</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Add new information to company">
+      <created>1616313739676</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1616313739676</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Add new information to company">
+      <created>1616313799485</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1616313799485</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -164,6 +241,7 @@
     <MESSAGE value="Reload permissions after update User" />
     <MESSAGE value="Resolving issue when the permissions are changed the profile page was not working!" />
     <MESSAGE value="Filter the companies&#10;Add job schedule for updating the cache ( disable now )" />
-    <option name="LAST_COMMIT_MESSAGE" value="Filter the companies&#10;Add job schedule for updating the cache ( disable now )" />
+    <MESSAGE value="Add new information to company" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add new information to company" />
   </component>
 </project>

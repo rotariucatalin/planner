@@ -49,6 +49,8 @@ public class UserServicePersonalImpl implements UserServicePersonal {
         user.setEmail(userDTO.getEmail());
         user.setFirstName(userDTO.getFirstName());
         user.setLastName(userDTO.getLastName());
+        user.setEmail(userDTO.getEmail());
+        user.setActive(userDTO.getActive());
         if(userDTO.getPassword().length() != 0)
             user.setPassword(passwordEncoder.encode(userDTO.getPassword()));
 

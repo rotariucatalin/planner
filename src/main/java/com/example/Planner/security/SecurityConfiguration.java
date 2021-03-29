@@ -10,6 +10,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
@@ -45,6 +46,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .and()
                 .formLogin()
                 .loginProcessingUrl("/signin")
+                .failureHandler(authenticationFailureHandler())
                 .loginPage("/login").permitAll()
                 .usernameParameter("txtUsername")
                 .passwordParameter("txtPassword")
@@ -62,6 +64,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
         return daoAuthenticationProvider;
 
+    }
+
+    @Bean
+    public AuthenticationFailureHandler authenticationFailureHandler() {
+        return new AuthenticationFailure();
     }
 
     @Bean

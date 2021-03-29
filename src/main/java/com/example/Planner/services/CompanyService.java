@@ -35,4 +35,6 @@ public interface CompanyService {
             @CacheEvict(value = "allCompaniesP", allEntries = true)
     })
     void deleteCompany(int companyId);
+
+
 }

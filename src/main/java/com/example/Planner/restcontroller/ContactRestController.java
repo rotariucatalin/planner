@@ -16,7 +16,7 @@ public class ContactRestController {
     ContactService contactService;
 
 
-    @GetMapping("/contacts/{company_id}")
+    @GetMapping("/contacts/contactsByCompanyId/{company_id}")
     public List<Contact> contactList(@PathVariable("company_id") int company_id) {
 
         return contactService.findAllContactsByCompanyID(company_id);
