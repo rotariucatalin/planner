@@ -33,13 +33,11 @@ public class AuthenticationFailure extends SimpleUrlAuthenticationFailureHandler
         } else {
 
             if(e.getClass() == UsernameNotFoundException.class) {
-                message = "cannot find a user";
+                message = "Cannot find a user";
             } else if(e.getClass() == BadCredentialsException.class) {
-                message = "check your password";
+                message = "Check your password";
             }
         }
-
-
 
         httpServletResponse.sendRedirect(String.format("login?error&message=%s", message));
 

@@ -22,7 +22,7 @@ public class ProfileController {
     @Autowired
     private UserServicePersonal userServicePersonal;
 
-    @GetMapping("index")
+    @GetMapping("/index")
     public String index(Model model){
 
         String currentUsername = SecurityContextHolder.getContext().getAuthentication().getName();
@@ -41,7 +41,7 @@ public class ProfileController {
         return "profile/index";
     }
 
-    @PostMapping("updateProfile/{userId}")
+    @PostMapping("/updateProfile/{userId}")
     public String updateProfile(@PathVariable(value = "userId") int userId, UserDTO userDTO) {
 
         userServicePersonal.updateUser(userDTO);
