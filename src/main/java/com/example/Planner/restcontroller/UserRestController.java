@@ -2,13 +2,15 @@ package com.example.Planner.restcontroller;
 
 import com.example.Planner.models.Permission;
 import com.example.Planner.models.User;
+import com.example.Planner.pdf.InquiryPDF;
 import com.example.Planner.services.UserServicePersonal;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.util.List;
 
 @RestController
@@ -16,6 +18,9 @@ public class UserRestController {
 
     @Autowired
     private UserServicePersonal userServicePersonal;
+
+    @Autowired
+    private InquiryPDF inquiryPDF;
 
     @GetMapping(value = "/admin/user/getAuthorityList/{userId}")
     public List<Permission> getAuthorityList(@PathVariable(value = "userId") int userId) {
@@ -32,4 +37,11 @@ public class UserRestController {
 
         userServicePersonal.updateUser(user, permissionJson);
     }
+
+    @GetMapping(value = "/generateInquiry")
+    public ResponseEntity<?> createPDF() {
+
+        return inquiryPDF.createPDF();
+    }
+
 }
