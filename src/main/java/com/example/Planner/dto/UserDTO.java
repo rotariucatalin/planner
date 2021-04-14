@@ -1,6 +1,8 @@
 package com.example.Planner.dto;
 
-public class UserDTO {
+import java.io.Serializable;
+
+public class UserDTO implements Serializable {
 
     private int id;
     private String username;

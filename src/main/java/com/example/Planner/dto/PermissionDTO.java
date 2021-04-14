@@ -1,6 +1,8 @@
 package com.example.Planner.dto;
 
-public class PermissionDTO {
+import java.io.Serializable;
+
+public class PermissionDTO implements Serializable {
 
     private int id;
     private String name;

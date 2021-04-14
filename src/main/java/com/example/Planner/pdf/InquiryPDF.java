@@ -1,5 +1,8 @@
 package com.example.Planner.pdf;
 
+import com.example.Planner.models.Inquiry;
+import com.example.Planner.models.Product;
+import com.example.Planner.services.InquiryService;
 import com.itextpdf.html2pdf.ConverterProperties;
 import com.itextpdf.html2pdf.HtmlConverter;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,12 +17,16 @@ import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.ByteArrayOutputStream;
+import java.util.List;
 
 @Component
 public class InquiryPDF {
 
     @Autowired
     private ServletContext servletContext;
+
+    @Autowired
+    private InquiryService inquiryService;
 
     private final TemplateEngine templateEngine;
     private final HttpServletRequest request;
@@ -31,9 +38,14 @@ public class InquiryPDF {
         this.response = response;
     }
 
-    public ResponseEntity<?> createPDF() {
+    public ResponseEntity<?> createPDF(int inquiryId) {
+
+        Inquiry inquiry = inquiryService.findById(inquiryId);
+        List<Product> productList = inquiry.getProductList();
 
         WebContext context = new WebContext(request, response, servletContext);
+        context.setVariable("inquiry", inquiry);
+        context.setVariable("products", productList);
         String inquiryHtml = templateEngine.process("inquiry", context);
 
         ByteArrayOutputStream target = new ByteArrayOutputStream();

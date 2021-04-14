@@ -33,5 +33,7 @@ public interface ContactService {
 
     void saveContact(ContactDTO contactDTO);
 
+    List<Contact> findAll();
+
     List<Contact> excelExport();
 }

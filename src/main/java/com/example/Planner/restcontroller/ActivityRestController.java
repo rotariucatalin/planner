@@ -3,7 +3,6 @@ package com.example.Planner.restcontroller;
 import com.example.Planner.dto.ActivityDTO;
 import com.example.Planner.dto.ContactDTO;
 import com.example.Planner.models.Activity;
-import com.example.Planner.models.Contact;
 import com.example.Planner.services.ActivityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

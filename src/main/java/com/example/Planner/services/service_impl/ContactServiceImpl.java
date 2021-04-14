@@ -93,4 +93,9 @@ public class ContactServiceImpl implements ContactService {
     public List<Contact> excelExport() {
         return contactRepository.findAll();
     }
+
+    @Override
+    public List<Contact> findAll() {
+        return contactRepository.findAll();
+    }
 }

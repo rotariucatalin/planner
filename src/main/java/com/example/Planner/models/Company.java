@@ -1,12 +1,9 @@
 package com.example.Planner.models;
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import javax.persistence.*;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Table(name = "companies")
@@ -34,21 +31,24 @@ public class Company {
     private String companyDescription;
 
     @OneToOne
+    @JsonIgnore
     @JoinColumn(name = "company_sales_person")
     private Contact salesPerson;
 
     @OneToOne
+    @JsonIgnore
     @JoinColumn(name = "company_sales_company")
     private Company salesCompany;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinTable( name = "contacts_companies",
-                joinColumns = @JoinColumn(name = "company_id", referencedColumnName = "company_id"),
-                inverseJoinColumns = @JoinColumn(name = "contact_id", referencedColumnName = "contact_id")
-              )
-    private Contact contact;
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "company")
+//    @JoinTable( name = "contacts_companies",
+//                joinColumns = @JoinColumn(name = "company_id", referencedColumnName = "company_id"),
+//                inverseJoinColumns = @JoinColumn(name = "contact_id", referencedColumnName = "contact_id")
+//              )
+    private List<Contact> contact;
 
-    @OneToMany(cascade = CascadeType.REMOVE)
+    @JsonIgnore
+    @OneToMany(cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
     private List<Activity> activityList;
 
 
@@ -124,11 +124,11 @@ public class Company {
         this.companyDescription = companyDescription;
     }
 
-    public Contact getContact() {
+    public List<Contact> getContact() {
         return contact;
     }
 
-    public void setContact(Contact contact) {
+    public void setContact(List<Contact> contact) {
         this.contact = contact;
     }
 

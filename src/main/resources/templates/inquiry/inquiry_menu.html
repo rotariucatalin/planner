@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<body>
+
+<div th:fragment="inquiry_nav">
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #73C2BE;">
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav mr-auto">
+                <li sec:authorize="hasAuthority('View_Inquiry')" class="nav-item">
+                    <a th:class="${statuscode == 'all'}? 'nav-link text-white active' : 'nav-link text-white'" href="#" th:href="@{~/inquiry/index}">All</a>
+                </li>
+                <li sec:authorize="hasAuthority('View_Inquiry')" class="nav-item">
+                    <a th:class="${statuscode == 'running'}? 'nav-link text-white active' : 'nav-link text-white'" href="#" th:href="@{~/inquiry/running/page/1}">Running</a>
+                </li>
+                <li sec:authorize="hasAuthority('View_Inquiry')" class="nav-item">
+                    <a th:class="${statuscode == 'sent'}? 'nav-link text-white active' : 'nav-link text-white'" href="#" th:href="@{~/inquiry/sent/page/1}">Sent</a>
+                </li>
+                <li sec:authorize="hasAuthority('View_Inquiry')" class="nav-item">
+                    <a th:class="${statuscode == 'hold'}? 'nav-link text-white active' : 'nav-link text-white'" href="#" th:href="@{~/inquiry/hold/page/1}">Hold</a>
+                </li>
+                <li sec:authorize="hasAuthority('View_Inquiry')" class="nav-item">
+                    <a th:class="${statuscode == 'canceled'}? 'nav-link text-white active' : 'nav-link text-white'" href="#" th:href="@{~/inquiry/canceled/page/1}">Canceled</a>
+                </li>
+                <li sec:authorize="hasAuthority('Add_Inquiry')" class="nav-item">
+                    <a class="nav-link text-white" href="#" id="add_new_inquiry" th:href="@{~/inquiry/addInquiry}">+Add new</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>
+</body>
+</html>

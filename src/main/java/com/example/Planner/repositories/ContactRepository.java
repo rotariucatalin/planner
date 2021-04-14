@@ -19,6 +19,8 @@ public interface ContactRepository extends JpaRepository<Contact, Integer> {
 
     Page<Contact> findAll(Pageable pageable);
 
+    List<Contact> findAll();
+
     @Modifying
     @Query(value = "update companies SET company_sales_person = null WHERE company_sales_person =:contact_id ", nativeQuery = true)
     void updateCompanySalesPerson(Integer contact_id);

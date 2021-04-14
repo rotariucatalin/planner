@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="fragments.html :: headerfiles"></head>
+    <body>
+        <header th:insert="fragments.html :: nav"></header>
+        <section th:insert="inquiry/inquiry_menu.html :: inquiry_nav"></section>
+        <!-- Page content goes here -->
+
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $('#company').on("change", function() {
+
+                    $('#contact').find('option').not(':first').remove();
+
+                    $.ajax({
+                        url: "http://localhost:8080/contacts/contactsByCompanyId/"+$('#company').val()+"",
+                        data: "",
+                        type: "GET",
+                        success:function(data) {
+
+                            if(data.length > 0) {
+
+                                $.each(data, function(index, element) {
+
+                                    $('#contact').append($('<option>', {
+                                        value: element.id,
+                                        text : element.name
+                                    }));
+
+                                });
+                            }
+                        }
+                    });
+                });
+                $('#salesCompany').on("change", function() {
+
+                    $('#salesContact').find('option').not(':first').remove();
+
+                    $.ajax({
+                        url: "http://localhost:8080/contacts/contactsByCompanyId/"+$('#salesCompany').val()+"",
+                        data: "",
+                        type: "GET",
+                        success:function(data) {
+
+                            if(data.length > 0) {
+
+                                $.each(data, function(index, element) {
+
+                                    $('#salesContact').append($('<option>', {
+                                        value: element.id,
+                                        text : element.name
+                                    }));
+
+                                });
+                            }
+                        }
+                    });
+                });
+            });
+
+        </script>
+
+        <div class="container-fluid">
+            <h2 style="margin-top: 25px; text-align: center;">Edit Inquiry</h2>
+            <form class="col-lg-6 offset-lg-3 border" style="padding: 15px; margin-top: 30px; margin-bottom: 30px;" th:action="@{/inquiry/updateInquiry/{id}(id=${inquiry.getId()}) }" th:object="${inquiry}" method="post" autocomplete="off">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <label for="inqNr">Inquiry no.</label>
+                            <input type="text" class="form-control" id="inqNr" name="inqNr" th:required="required" th:value="${inquiry.getInqNr()}" th:field="*{inqNr}" placeholder="Inquiry number">
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <label for="inqRevision">Inquiry revision</label>
+                            <input type="text" class="form-control" id="inqRevision" name="inqRevision" th:required="required" th:value="${inquiry.getInqRevision()}" th:field="*{inqRevision}" placeholder="Inquiry revision">
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <label for="inqDate">Inquiry date</label>
+                            <input type="text" class="form-control date" id="inqDate" name="inqDate" th:required="required" th:value="${inquiry.getInqDate()}" th:field="*{inqDate}" placeholder="Inquiry date">
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="company">Company client</label>
+                            <select class="form-control" id="company" name="company" th:field="*{company}" th:required="required">
+                                <option value="">Select company client</option>
+                                <option th:each="company : ${companies}"
+                                        th:value="${company.getId()}"
+                                        th:selected="(${company.getId()} == ${inquiry.getCompany().getId()})"
+                                        th:text="${company.getName()}">
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="contact">Contact</label>
+                            <select class="form-control" id="contact" th:field="*{contact}" name="contact">
+                                <option value="" selected="selected">Select contact</option>
+                                <option th:each="contact : ${companyContacts}"
+                                        th:value="${contact.getId()}"
+                                        th:selected="(${contact.getId()} == ${inquiry.getContact().getId()})"
+                                        th:text="${contact.getName()}">
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="salesCompany">Sales company</label>
+                            <select class="form-control" id="salesCompany" name="salesCompany" th:field="*{salesCompany}" th:required="required">
+                                <option value="">Select sales company</option>
+                                <option th:each="company : ${companies}"
+                                        th:value="${company.getId()}"
+                                        th:selected="(${company.getId()} == ${inquiry.getSalesCompany().getId()})"
+                                        th:text="${company.getName()}">
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="salesContact">Sales company</label>
+                            <select class="form-control" id="salesContact" th:field="*{salesContact}" name="salesContact">
+                                <option value="" selected="selected">Select sales contact</option>
+                                <option th:each="contact : ${salesContacts}"
+                                        th:value="${contact.getId()}"
+                                        th:selected="(${contact.getId()} == ${inquiry.getSalesContact().getId()})"
+                                        th:text="${contact.getName()}">
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <label for="inqRate">Inquiry rate</label>
+                            <input type="text" class="form-control" id="inqRate" name="inqRate" th:required="required" th:value="${inquiry.getInqRate()}" th:field="*{inqRate}" placeholder="Inquiry rate">
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <label for="inqPrice">Inquiry price</label>
+                            <input type="text" class="form-control" id="inqPrice" name="inqPrice" th:required="required" th:value="${inquiry.getInqPrice()}" th:field="*{inqPrice}" placeholder="Inquiry rate">
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <label for="inqCurrency">Currency</label>
+                            <select class="form-control" id="inqCurrency" name="inqCurrency" th:field="*{inqCurrency}">
+                                <option value="" selected="selected">Select currency</option>
+                                <option value="EUR" th:selected="(${inquiry.getInqCurrency() == 'EUR'})">EUR</option>
+                                <option value="GBP" th:selected="(${inquiry.getInqCurrency() == 'GBP'})">GBP</option>
+                                <option value="NOK" th:selected="(${inquiry.getInqCurrency() == 'NOK'})">NOK</option>
+                                <option value="RON" th:selected="(${inquiry.getInqCurrency() == 'RON'})">RON</option>
+                                <option value="USD" th:selected="(${inquiry.getInqCurrency() == 'USD'})">USD</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <label for="inqProjectManager">Project manager</label>
+                            <select class="form-control" id="inqProjectManager" name="inqProjectManager" th:field="*{inqProjectManager}">
+                                <option value="" selected="selected">Select project manager</option>
+                                <option th:each="contact : ${contacts}"
+                                        th:value="${contact.getId()}"
+                                        th:selected="(${contact.getId()} == ${inquiry.getInqProjectManager().getId()})"
+                                        th:text="${contact.getName()}">
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <label for="inqStatus">Status</label>
+                            <select class="form-control" id="inqStatus" name="inqStatus" th:field="*{inqStatus}">
+                                <option value="" selected="selected">Select status</option>
+                                <option value="sent" th:selected="(${inquiry.getInqStatus() == 'sent'})">Sent</option>
+                                <option value="running" th:selected="(${inquiry.getInqStatus() == 'running'})">Running</option>
+                                <option value="hold" th:selected="(${inquiry.getInqStatus() == 'hold'})">Hold</option>
+                                <option value="canceled" th:selected="(${inquiry.getInqStatus() == 'canceled'})">Canceled</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="form-group">
+                            <label for="inqPriority">Priority</label>
+                            <select class="form-control" id="inqPriority" name="inqPriority" th:field="*{inqPriority}">
+                                <option value="" selected="selected">Select priority</option>
+                                <option value="low" th:selected="(${inquiry.getInqPriority() == 'low'})">Low</option>
+                                <option value="medium" th:selected="(${inquiry.getInqPriority() == 'medium'})">Medium</option>
+                                <option value="high" th:selected="(${inquiry.getInqPriority() == 'high'})">High</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            <label for="inqDescription">Inquiry description</label>
+                            <textarea class="form-control" id="inqDescription" name="inqDescription" th:field="*{inqDescription}" th:text="${inquiry.getInqDescription()}"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Update</button>
+                <a th:href="@{'/inquiry/index'}" class="btn btn-warning float-right text-white">Cancel</a>
+            </form>
+        </div>
+    </body>
+</html>

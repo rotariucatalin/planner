@@ -195,15 +195,21 @@
                                             <th scope="col" colspan="2" style="border-bottom: 0px;">Options</th>
                                         </tr>
                                         </thead>
-                                        <tbody>
-                                        <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td align="center" style="width: 100px;"><a class="btn btn-success btn-sm text-white" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></a></td>
-                                            <td align="center" style="width: 100px;">
-                                                <a  class="btn btn-danger btn-sm text-white" type="button" data-toggle="modal" data-target="#deleteContact" data-placement="top" title="Delete"><i class="fa fa-trash"></i></a>
-                                            </td>
-                                        </tr>
+                                        <tbody th:if = "${inquiries.size() > 0}">
+                                            <tr th:each="inquiry, inquiryCount : ${inquiries}">
+                                                <td th:text="${inquiryCount.count}"></td>
+                                                <td th:text="${inquiry.getInqNr()}"></td>
+
+                                                <td align="center" style="width: 100px;"><a sec:authorize="hasAuthority('Edit_Inquiry')" th:href="@{'/inquiry/edit/' + ${inquiry.getId()}}" class="btn btn-success btn-sm text-white" type="button" data-toggle="tooltip" data-placement="top" title="Edit"><i class="fa fa-edit"></i></a></td>
+                                                <td align="center" style="width: 100px;">
+                                                    <a sec:authorize="hasAuthority('Delete_Contact')" class="btn btn-danger btn-sm text-white" type="button" data-toggle="modal" th:attr="data-object-id=''+${inquiry.getId()}+''" data-target="#deleteContact" data-placement="top" title="Delete"><i class="fa fa-trash"></i></a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                        <tbody th:if = "${inquiries.size() == 0}">
+                                            <tr>
+                                                <td colspan="4" align="center">No results!</td>
+                                            </tr>
                                         </tbody>
                                     </table>
                                 </div>

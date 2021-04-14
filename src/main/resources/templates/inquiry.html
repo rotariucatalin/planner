@@ -54,7 +54,7 @@
                 <h4 style="margin-bottom: 10px;">INVOICE No. / DATE</h4>
             </div>
             <div style="width: 70%;">
-                <h4 style="margin-top: 10px;">200 / 2020-02-03</h4>
+                <h4 style="margin-top: 10px;" th:text="${inquiry.getInqNr()} +' / ' + ${inquiry.getInqDate()}"></h4>
             </div>
             <p style="font-style: italic; font-size: 12px;">
                 ORDER NUMBER: 218111-0
@@ -76,15 +76,15 @@
                 <h4 style="margin-bottom: 10px;">BUYER</h4>
             </div>
             <div>
-                <h4 style="margin-top: 10px; margin-bottom: 2px;">BUYER NAME</h4>
-                <h4 style="margin-top: 5px; margin-bottom: 2px;">BUYER ADDRESS</h4>
+                <h4 style="margin-top: 10px; margin-bottom: 2px;" th:text="${inquiry.getCompany().getName()}"></h4>
+                <h4 style="margin-top: 5px; margin-bottom: 2px;" th:text="${inquiry.getCompany().getPostAddress()}"></h4>
             </div>
             <div style="margin-top: 20px; border-bottom: 2px solid red;">
                 <h4 style="margin-bottom: 10px;">RECEIVER</h4>
             </div>
             <div>
-                <h4 style="margin-top: 10px; margin-bottom: 2px;">RECEIVER NAME</h4>
-                <h4 style="margin-top: 5px; margin-bottom: 2px;">RECEIVER ADDRESS</h4>
+                <h4 style="margin-top: 10px; margin-bottom: 2px;" th:text="${inquiry.getCompany().getName()}"></h4>
+                <h4 style="margin-top: 5px; margin-bottom: 2px;" th:text="${inquiry.getCompany().getPostAddress()}"></h4>
             </div>
         </div>
     </div>
@@ -98,21 +98,13 @@
                 <th>Unit price</th>
                 <th>Total price</th>
             </tr>
-            <tr>
-                <td>1</td>
-                <td>Towing winch TW-E100KN</td>
+            <tr th:each="product, productCount : ${products}">
+                <td th:text="${productCount.count}"></td>
+                <td th:text="${product.getName()}"></td>
                 <td>20023-1</td>
-                <td>1</td>
+                <td th:text="${product.getPcs()}"></td>
                 <td>5233.00 EUR<br/>(256,123.56 RON)</td>
                 <td>52,300.00 EUR<br/>(256,123.56 RON)</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>Integrated control system  22 KW</td>
-                <td>20023-1</td>
-                <td>1</td>
-                <td>15200.00 EUR<br/>(74,437.44 RON)</td>
-                <td>15,200.00 EUR<br/>(74,437.44 RON)</td>
             </tr>
             <tr>
                 <td colspan="3"></td>

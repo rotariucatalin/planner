@@ -5,9 +5,11 @@ import com.example.Planner.exception.RequestException;
 import com.example.Planner.models.Activity;
 import com.example.Planner.models.Company;
 import com.example.Planner.models.Contact;
+import com.example.Planner.models.Inquiry;
 import com.example.Planner.services.ActivityService;
 import com.example.Planner.services.CompanyService;
 import com.example.Planner.services.ContactService;
+import com.example.Planner.services.InquiryService;
 import com.example.Planner.utils.CompanyType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
@@ -36,6 +38,9 @@ public class CompanyController {
 
     @Autowired
     private ActivityService activityService;
+
+    @Autowired
+    private InquiryService inquiryService;
 
     private Set<CompanyType> companyTypes = EnumSet.allOf(CompanyType.class);
     private RestTemplate restTemplate = new RestTemplate();
@@ -180,10 +185,12 @@ public class CompanyController {
 
         List<Contact> contactList = contactService.findAllContactsByCompanyID(companyId);
         List<Activity> activityList = activityService.findAllByCompanyId(companyId);
+        List<Inquiry> inquiryList = inquiryService.findAllByCompanyId(companyId);
 
         model.addAttribute("company", company);
         model.addAttribute("contacts", contactList);
         model.addAttribute("activities", activityList);
+        model.addAttribute("inquiries", inquiryList);
 
         return "/company/company_info";
     }

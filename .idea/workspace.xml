@@ -1,17 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3c344b42-c92e-4c11-8e1f-ada057d3ef44" name="Default Changelist" comment="Complete Contact page;&#10;Adding Excel for contact page;&#10;Adding custom login error message;">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/Planner/pdf/InquiryPDF.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/inquiry/footer.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/static/inquiry/header.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/inquiry.html" afterDir="false" />
+    <list default="true" id="3c344b42-c92e-4c11-8e1f-ada057d3ef44" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/demo-html.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/Planner/controllers/InquiryController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/Planner/dto/InquiryDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/Planner/dto/OrderDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/Planner/dto/ProductDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/Planner/models/Inquiry.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/Planner/models/Order.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/Planner/models/Product.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/Planner/repositories/InquiryRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/Planner/restcontroller/InquiryRestController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/Planner/services/InquiryService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/Planner/services/service_impl/InquiryServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/inquiry/add_inquiry.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/inquiry/edit_inquiry.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/inquiry/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/inquiry/inquiry_info.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/inquiry/inquiry_menu.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Planner.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Planner.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Planner/controllers/ProfileController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Planner/controllers/ProfileController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Planner/security/AuthenticationFailure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Planner/security/AuthenticationFailure.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Planner/controllers/CompanyController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Planner/controllers/CompanyController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Planner/dto/CompanyDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Planner/dto/CompanyDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Planner/dto/ContactDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Planner/dto/ContactDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Planner/dto/PermissionDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Planner/dto/PermissionDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Planner/dto/UserDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Planner/dto/UserDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Planner/models/Activity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Planner/models/Activity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Planner/models/Company.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Planner/models/Company.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Planner/models/Contact.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Planner/models/Contact.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Planner/pdf/InquiryPDF.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Planner/pdf/InquiryPDF.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Planner/repositories/ContactRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Planner/repositories/ContactRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Planner/restcontroller/ActivityRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Planner/restcontroller/ActivityRestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Planner/restcontroller/ContactRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Planner/restcontroller/ContactRestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Planner/restcontroller/UserRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Planner/restcontroller/UserRestController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Planner/security/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Planner/security/SecurityConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Planner/services/ContactService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Planner/services/ContactService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/Planner/services/service_impl/ContactServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/Planner/services/service_impl/ContactServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/activity/add_activity.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/activity/add_activity.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin/authority.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin/authority.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/company/company_info.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/company/company_info.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/fragments.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/fragments.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/inquiry.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/inquiry.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/fragments.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/fragments.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -27,6 +57,7 @@
       <list>
         <option value="Enum" />
         <option value="HTML File" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -49,7 +80,7 @@
     <property name="ToolWindowRun.ShowToolbar" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/static/inquiry" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/templates/inquiry" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="settings.github" />
   </component>
@@ -58,6 +89,7 @@
       <recent name="com.example.Planner.excel" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Spring tutoriale\Spring\planner\src\main\resources\templates\inquiry" />
       <recent name="D:\Spring tutoriale\Spring\planner\src\main\resources\static\inquiry" />
       <recent name="D:\Spring tutoriale\Spring\planner\src\main\resources\templates\contact" />
     </key>
@@ -104,7 +136,11 @@
       <workItem from="1616998229240" duration="19883000" />
       <workItem from="1617087281033" duration="8781000" />
       <workItem from="1617543553696" duration="592000" />
-      <workItem from="1617600649629" duration="2712000" />
+      <workItem from="1617600649629" duration="3807000" />
+      <workItem from="1617608628566" duration="17887000" />
+      <workItem from="1617690239899" duration="15226000" />
+      <workItem from="1617775582933" duration="16272000" />
+      <workItem from="1618397613271" duration="779000" />
     </task>
     <task id="LOCAL-00001" summary="Message">
       <created>1615892949663</created>
@@ -197,7 +233,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617604448081</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Complete Contact page;&#10;Adding Excel for contact page;&#10;Adding custom login error message;">
+      <created>1617604690302</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1617604690302</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -223,8 +266,9 @@
     <MESSAGE value="Resolving issue when the permissions are changed the profile page was not working!" />
     <MESSAGE value="Filter the companies&#10;Add job schedule for updating the cache ( disable now )" />
     <MESSAGE value="Add new information to company" />
-    <MESSAGE value="Complete Contact page;&#10;Adding Excel for contact page;&#10;Adding custom login error message;" />
     <MESSAGE value="Adding AuthenticationFailure custom message&#10;Generating pdf inquiry" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding AuthenticationFailure custom message&#10;Generating pdf inquiry" />
+    <MESSAGE value="Complete Contact page;&#10;Adding Excel for contact page;&#10;Adding custom login error message;" />
+    <MESSAGE value="Complete inquiry page&#10;Create order" />
+    <option name="LAST_COMMIT_MESSAGE" value="Complete inquiry page&#10;Create order" />
   </component>
 </project>

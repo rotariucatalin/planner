@@ -37,7 +37,8 @@ public class Contact {
     @OneToMany(mappedBy = "contact", fetch = FetchType.LAZY, cascade = CascadeType.REMOVE)
     private List<Activity> activityList;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnore
     @JoinTable( name = "contacts_companies",
             joinColumns = @JoinColumn(name = "contact_id", referencedColumnName = "contact_id"),
             inverseJoinColumns = @JoinColumn(name = "company_id", referencedColumnName = "company_id")

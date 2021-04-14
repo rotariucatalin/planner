@@ -235,6 +235,46 @@
 
                 </div>
 
+                <div class="form-row">
+
+                    <div class="form-group col-md-2">
+                        <b>Inquiries</b>
+                    </div>
+
+                    <div class="form-group col-md-2">
+                        <label for="View_Inquiry">View inquiry</label>
+                        <select class="form-control permission" id="View_Inquiry" name="View_Inquiry">
+                            <option th:value="${''}">No</option>
+                            <option th:value="${View_Inquiry}">Yes</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group col-md-2">
+                        <label for="Add_Inquiry">Add inquiry</label>
+                        <select class="form-control permission" id="Add_Inquiry" name="Add_Inquiry">
+                            <option th:value="${''}">No</option>
+                            <option th:value="${Add_Inquiry}">Yes</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group col-md-2">
+                        <label for="Edit_Inquiry">Edit inquiry</label>
+                        <select class="form-control permission" id="Edit_Inquiry" name="Edit_Inquiry">
+                            <option th:value="${''}">No</option>
+                            <option th:value="${Edit_Inquiry}">Yes</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group col-md-2">
+                        <label for="Delete_Inquiry">Delete inquiry</label>
+                        <select class="form-control permission" id="Delete_Inquiry" name="Delete_Inquiry">
+                            <option th:value="${''}">No</option>
+                            <option th:value="${Delete_Inquiry}">Yes</option>
+                        </select>
+                    </div>
+
+                </div>
+
 
                 <button type="button" class="btn btn-primary" id="updatePermissions">Update</button>
                 <button type="button" class="btn btn-info" id="selectAll">Select all</button>

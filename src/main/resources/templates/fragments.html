@@ -18,7 +18,7 @@
 
     <script type="text/javascript">
         $(document).ready(function(){
-            $('#date').datepicker({
+            $('.date').datepicker({
                 format: "yyyy-mm-dd",
                 autoclose: true
             });
@@ -49,6 +49,9 @@
                 </li>
                 <li sec:authorize="hasAuthority('View_Contact')" class="nav-item">
                     <a class="nav-link" href="#" th:href="@{~/contact/index}">Contacts</a>
+                </li>
+                <li sec:authorize="hasAuthority('View_Inquiry')" class="nav-item">
+                    <a class="nav-link" href="#" th:href="@{~/inquiry/index}">Inquiries</a>
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0" form-method="post" th:action="@{/logout}">

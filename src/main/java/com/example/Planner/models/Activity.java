@@ -107,9 +107,8 @@ public class Activity {
     public String getDate() {
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("YYYY-MM-dd");
-        LocalDate localDate = LocalDate.parse(date);
 
-        return formatter.format(localDate);
+        return LocalDate.parse(date).format(formatter);
 
     }
 

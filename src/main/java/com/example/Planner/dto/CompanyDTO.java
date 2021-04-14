@@ -3,7 +3,9 @@ package com.example.Planner.dto;
 import com.example.Planner.models.Company;
 import com.example.Planner.models.Contact;
 
-public class CompanyDTO {
+import java.io.Serializable;
+
+public class CompanyDTO implements Serializable {
 
     private int id;
     private String name;
